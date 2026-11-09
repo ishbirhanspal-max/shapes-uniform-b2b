@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+      <rect width="100%" height="100%" fill="none"/>
+      <path d="M65 25 L85 35 L85 65 L65 75 L45 65 L45 35 Z" fill="#1e3a8a"/>
+      <path d="M65 35 L65 65 M53 48 L77 48" stroke="#ffffff" stroke-width="3"/>
+      <text x="95" y="46" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#1e3a8a">ST. GREGORIOS</text>
+      <text x="95" y="64" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#1d4ed8" letter-spacing="1">HIGH SCHOOL</text>
+    </svg>

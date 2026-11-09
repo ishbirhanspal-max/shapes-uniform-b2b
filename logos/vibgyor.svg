@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+      <rect width="100%" height="100%" fill="none"/>
+      <path d="M40 65 A30 30 0 0 1 100 65" fill="none" stroke="#ef4444" stroke-width="4"/>
+      <path d="M45 65 A25 25 0 0 1 95 65" fill="none" stroke="#f59e0b" stroke-width="4"/>
+      <path d="M50 65 A20 20 0 0 1 90 65" fill="none" stroke="#10b981" stroke-width="4"/>
+      <path d="M55 65 A15 15 0 0 1 85 65" fill="none" stroke="#3b82f6" stroke-width="4"/>
+      <text x="110" y="52" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="#1e1b4b">VIBGYOR</text>
+      <text x="110" y="68" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="#4338ca" letter-spacing="2">HIGH SCHOOL</text>
+    </svg>
