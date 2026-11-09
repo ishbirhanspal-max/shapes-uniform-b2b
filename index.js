@@ -695,6 +695,8 @@ function init() {
   setupFormSubmitListener();
   setupScrollReveal();
   setupHeaderScrollEffect();
+  // Ensure all cards and sections are immediately visible
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
 }
 
 document.addEventListener('DOMContentLoaded', init);
