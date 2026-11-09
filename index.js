@@ -12,10 +12,10 @@ const defaultSiteData = {
     openingHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sunday: Closed',
     webhookUrl: '',
     capacityStats: [
-      { label: 'Monthly Factory Capacity', value: '50,000+ Units' },
+      { label: 'Corporate Clients Served', value: '250+ Brands' },
       { label: 'Quality Inspection Levels', value: '3-Tier QA Check' },
       { label: 'Timely Shipment Metric', value: '99.4% On-Time' },
-      { label: 'Active Corporate Clients', value: '250+ Brands' }
+      { label: 'Manufacturing Heritage', value: 'Since 2013' }
     ]
   },
   brands: [
@@ -540,9 +540,129 @@ window.applyEstimatorToForm = function() {
 
   const msg = document.getElementById('form-message');
   if (msg) {
-    msg.value = `Estimated volume: ${qty} units. Pre-configured via website estimator tool.`;
+    msg.value = `Estimated volume: ${qty} units of ${cat}. Pre-configured via B2B turnaround tool.`;
+  }
+
+  const contact = document.getElementById('contact');
+  if (contact) {
+    contact.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      msg?.focus();
+    }, 500);
   }
 };
+
+// ==========================================================
+// INTERACTIVE B2B SIZE MATRIX FUNCTIONS
+// ==========================================================
+window.stepSize = function(inputId, delta) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  let val = parseInt(input.value, 10) || 0;
+  val = Math.max(0, val + delta);
+  input.value = val;
+  calculateMatrixTotal();
+};
+
+window.calculateMatrixTotal = function() {
+  const sizes = ['size-s', 'size-m', 'size-l', 'size-xl', 'size-xxl', 'size-3xl'];
+  let total = 0;
+  sizes.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) total += parseInt(el.value, 10) || 0;
+  });
+
+  const totalEl = document.getElementById('matrix-total-units');
+  if (totalEl) totalEl.innerText = `${total.toLocaleString()} Pcs`;
+
+  // Update WhatsApp CTA button
+  const waBtn = document.getElementById('matrix-send-wa-btn');
+  if (waBtn) {
+    const s = document.getElementById('size-s')?.value || '0';
+    const m = document.getElementById('size-m')?.value || '0';
+    const l = document.getElementById('size-l')?.value || '0';
+    const xl = document.getElementById('size-xl')?.value || '0';
+    const xxl = document.getElementById('size-xxl')?.value || '0';
+    const xxxl = document.getElementById('size-3xl')?.value || '0';
+
+    const msg = `Hello Shapes Uniform, I configured a custom Size Matrix for bulk ordering:%0A- S (38): ${s} pcs%0A- M (40): ${m} pcs%0A- L (42): ${l} pcs%0A- XL (44): ${xl} pcs%0A- XXL (46): ${xxl} pcs%0A- 3XL (48): ${xxxl} pcs%0A*Total Order: ${total} Pcs*%0APlease provide factory wholesale pricing and fabric options.`;
+    waBtn.onclick = () => {
+      window.open(`https://wa.me/919833392756?text=${msg}`, '_blank');
+    };
+  }
+};
+
+window.applyMatrixToForm = function() {
+  const s = document.getElementById('size-s')?.value || '0';
+  const m = document.getElementById('size-m')?.value || '0';
+  const l = document.getElementById('size-l')?.value || '0';
+  const xl = document.getElementById('size-xl')?.value || '0';
+  const xxl = document.getElementById('size-xxl')?.value || '0';
+  const xxxl = document.getElementById('size-3xl')?.value || '0';
+  const total = (parseInt(s, 10) || 0) + (parseInt(m, 10) || 0) + (parseInt(l, 10) || 0) + (parseInt(xl, 10) || 0) + (parseInt(xxl, 10) || 0) + (parseInt(xxxl, 10) || 0);
+
+  const formMsg = document.getElementById('form-message');
+  if (formMsg) {
+    formMsg.value = `Custom Size Matrix Breakdown (Total: ${total} pcs):\n- S (38): ${s} pcs\n- M (40): ${m} pcs\n- L (42): ${l} pcs\n- XL (44): ${xl} pcs\n- XXL (46): ${xxl} pcs\n- 3XL (48): ${xxxl} pcs`;
+  }
+
+  const formVol = document.getElementById('form-volume');
+  if (formVol) {
+    if (total <= 300) formVol.value = '100-300';
+    else if (total <= 500) formVol.value = '300-500';
+    else if (total <= 1000) formVol.value = '500-1000';
+    else formVol.value = '1000+';
+  }
+
+  const contact = document.getElementById('contact');
+  if (contact) {
+    contact.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      formMsg?.focus();
+    }, 500);
+  }
+};
+
+function setupSizeMatrix() {
+  const sizes = ['size-s', 'size-m', 'size-l', 'size-xl', 'size-xxl', 'size-3xl'];
+  sizes.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', calculateMatrixTotal);
+    }
+  });
+  calculateMatrixTotal();
+}
+
+// ==========================================================
+// FAQ ACCORDION INTERACTION
+// ==========================================================
+function setupFaqAccordion() {
+  const container = document.getElementById('faq-accordion-container');
+  if (!container) return;
+
+  container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.faq-question');
+    if (!btn) return;
+
+    const item = btn.closest('.faq-item');
+    if (!item) return;
+
+    const isOpen = item.classList.contains('active');
+    
+    // Close other items
+    container.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('active');
+      const q = el.querySelector('.faq-question');
+      if (q) q.setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+}
 
 // Hamburger drawer flyout triggers
 function setupNavigationListeners() {
@@ -690,6 +810,8 @@ function init() {
   renderBrandsStrip('all');
   setupBrandFilters();
   setupEstimator();
+  setupSizeMatrix();
+  setupFaqAccordion();
   setupModalListeners();
   setupNavigationListeners();
   setupFormSubmitListener();

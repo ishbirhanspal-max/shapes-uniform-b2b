@@ -11,10 +11,10 @@ const defaultSiteData = {
     openingHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sunday: Closed',
     webhookUrl: '',
     capacityStats: [
-      { label: 'Monthly Factory Capacity', value: '50,000+ Units' },
+      { label: 'Corporate Clients Served', value: '250+ Brands' },
       { label: 'Quality Inspection Levels', value: '3-Tier QA Check' },
       { label: 'Timely Shipment Metric', value: '99.4% On-Time' },
-      { label: 'Active Corporate Clients', value: '250+ Brands' }
+      { label: 'Manufacturing Heritage', value: 'Since 2013' }
     ]
   },
   brands: [
