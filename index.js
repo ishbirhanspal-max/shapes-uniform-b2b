@@ -672,19 +672,22 @@ function setupNavigationListeners() {
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      drawer.classList.toggle('open');
+      const isOpen = drawer.classList.toggle('open');
+      toggleBtn.classList.toggle('active', isOpen);
     });
 
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileLinks = document.querySelectorAll('.mobile-drawer-link, .mobile-nav-link');
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         drawer.classList.remove('open');
+        toggleBtn.classList.remove('active');
       });
     });
 
     document.addEventListener('click', (e) => {
       if (!drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
         drawer.classList.remove('open');
+        toggleBtn.classList.remove('active');
       }
     });
   }
