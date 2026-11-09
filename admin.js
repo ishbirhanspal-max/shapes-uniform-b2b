@@ -97,7 +97,7 @@ const defaultSiteData = {
       id: 'costumes',
       title: 'School Annual Day Costumes',
       description: 'Vibrant, premium custom-tailored stage costumes, thematic character outfits, and coordinate accessories designed for school annual day celebrations and theatre productions.',
-      image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/stage_costume.jpg'
     },
     {
       id: 'others',

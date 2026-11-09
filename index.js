@@ -93,7 +93,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Stage Satin, Stretch Lycra, Shimmer Velvet & Trims',
       description: 'Vibrant, custom-tailored stage costumes, thematic character outfits, and coordinate accessories designed for school annual day celebrations.',
-      image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/stage_costume.jpg'
     }
   ],
   // 12 Featured Catalog Products
@@ -126,7 +126,7 @@ const defaultSiteData = {
       moq: '100 Sets',
       fabrics: 'Colorfast Poly-Cotton Twill Weave',
       description: 'Standard institutional school sets comprising collared shirt, pleated skirt or trouser, custom woven tie, and socks.',
-      image: 'images/uniforms/school_uniform.jpg'
+      image: 'images/uniforms/school_uniform_set.jpg'
     },
     {
       id: 'prod-4',
@@ -216,7 +216,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Vibrant Stage Satin, Lycra & Velvet',
       description: 'Complete theatrical production costumes designed according to choreography themes, historical periods, or folk dance forms.',
-      image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/stage_costume.jpg'
     }
   ],
   // 19 Vibrant Client Brand Logos (Full Color Vectors)
