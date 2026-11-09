@@ -2,7 +2,7 @@
   "name": "shapes-uniform-b2b",
   "version": "1.0.0",
   "description": "B2B Corporate Portfolio for Shapes Uniform",
-  "main": "index.html",
+  "main": "worker.js",
   "scripts": {
     "dev": "python -m http.server 3000"
   },
