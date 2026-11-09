@@ -1624,19 +1624,26 @@ button, input, select, textarea {
    "Trusted by 500+ Organizations Across India"
    Grayscale to full color on hover
    ========================================================== */
+/* ==========================================================
+   SECTION 9: PROMINENT CLIENT LOGOS TICKER
+   Infinite marquee with enlarged brand logos and tags
+   ========================================================== */
 .brands-marquee-wrapper {
   overflow: hidden;
   position: relative;
   width: 100%;
-  margin-bottom: 40px;
-  padding: 12px 0;
+  padding: 30px 0 10px 0;
+  margin-bottom: 20px;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
 .brands-marquee-track {
   display: flex;
-  gap: 36px;
+  gap: 24px;
   width: max-content;
-  animation: marquee-scroll 32s linear infinite;
+  animation: marquee-scroll 45s linear infinite;
+  align-items: center;
 }
 
 .brands-marquee-track:hover {
@@ -1651,133 +1658,60 @@ button, input, select, textarea {
 .marquee-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   background: #FFFFFF;
-  border: 1px solid var(--border-color);
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--border-color);
+  padding: 16px 26px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
   white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.marquee-item:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(192, 57, 43, 0.12);
 }
 
 .marquee-img {
-  height: 24px;
+  height: 48px;
   width: auto;
-  max-width: 90px;
+  max-width: 130px;
   object-fit: contain;
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  opacity: 0.85;
+  transition: all 0.3s ease;
 }
 
 .marquee-item:hover .marquee-img {
   filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
-.marquee-item span {
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-/* Filter Pills for Brands */
-.brands-filter-pills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-
-.b-pill {
-  background: var(--bg-alt);
-  border: 1px solid var(--border-color);
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.b-pill:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
-
-.b-pill.active {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-  color: #FFFFFF;
-}
-
-/* Brands Logo Strip (Grayscale to full color on hover) */
-.brands-logo-strip {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.brand-logo-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 16px 12px;
+.marquee-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
+  gap: 3px;
+  text-align: left;
 }
 
-.brand-logo-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow-hover);
-}
-
-.brand-logo-img-wrapper {
-  height: 48px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.brand-logo-card .brand-logo-img {
-  max-height: 100%;
-  max-width: 110px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.75;
-  transition: all 0.3s ease;
-}
-
-.brand-logo-card:hover .brand-logo-img {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-.brand-card-name {
+.marquee-name {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--text-main);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  color: #1A1A1A;
+  letter-spacing: -0.2px;
 }
 
-.brand-card-tag {
-  font-size: 11px;
-  color: var(--text-light);
+.marquee-tag {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
 /* ==========================================================
@@ -2602,9 +2536,6 @@ button, input, select, textarea {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-  .brands-logo-strip {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 900px) {
@@ -2813,9 +2744,32 @@ button, input, select, textarea {
     height: 200px;
   }
 
-  .brands-logo-strip {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+  .brands-marquee-wrapper {
+    padding: 16px 0 6px 0;
+  }
+
+  .brands-marquee-track {
+    gap: 16px;
+    animation-duration: 36s;
+  }
+
+  .marquee-item {
+    padding: 12px 18px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .marquee-img {
+    height: 38px;
+    max-width: 95px;
+  }
+
+  .marquee-name {
+    font-size: 14px;
+  }
+
+  .marquee-tag {
+    font-size: 11px;
   }
 
   .why-us-grid {

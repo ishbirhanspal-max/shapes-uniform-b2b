@@ -667,55 +667,24 @@ function setupSizeMatrix() {
 }
 
 // ==========================================================
-// BRANDS LOGOS & MARQUEE
+// CLIENT LOGOS ENLARGED INFINITE TICKER
 // ==========================================================
-function renderBrandsStrip(filter = 'all') {
-  const container = document.getElementById('brands-logo-strip');
+function renderBrandsStrip() {
   const marqueeTrack = document.getElementById('brands-marquee-track');
-  
-  if (!siteData.brands || siteData.brands.length === 0) return;
+  if (!marqueeTrack || !siteData.brands || siteData.brands.length === 0) return;
 
-  const filtered = filter === 'all'
-    ? siteData.brands
-    : siteData.brands.filter(b => b.category === filter);
-
-  if (container) {
-    container.innerHTML = filtered.map(brand => `
-      <div class="brand-logo-card">
-        <div class="brand-logo-img-wrapper">
-          <img src="${brand.logo}" alt="${brand.name}" class="brand-logo-img" title="${brand.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
-        </div>
-        <span class="brand-card-name">${brand.name}</span>
-        ${brand.tag ? `<span class="brand-card-tag">${brand.tag}</span>` : ''}
+  const items = siteData.brands.map(brand => `
+    <div class="marquee-item" title="${brand.name} - ${brand.tag || 'Institutional Partner'}">
+      <img src="${brand.logo}" alt="${brand.name}" class="marquee-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
+      <div class="marquee-info">
+        <span class="marquee-name">${brand.name}</span>
+        ${brand.tag ? `<span class="marquee-tag">${brand.tag}</span>` : ''}
       </div>
-    `).join('');
-  }
+    </div>
+  `).join('');
 
-  if (marqueeTrack && marqueeTrack.children.length === 0) {
-    const items = siteData.brands.map(brand => `
-      <div class="marquee-item">
-        <img src="${brand.logo}" alt="${brand.name}" class="marquee-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
-        <span>${brand.name}</span>
-      </div>
-    `).join('');
-    marqueeTrack.innerHTML = items + items + items;
-  }
-}
-
-function setupBrandFilters() {
-  const filterBar = document.getElementById('brands-filter-bar');
-  if (!filterBar) return;
-
-  filterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('.b-pill');
-    if (!btn) return;
-
-    filterBar.querySelectorAll('.b-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const cat = btn.getAttribute('data-bfilter') || 'all';
-    renderBrandsStrip(cat);
-  });
+  // Duplicate 3 times for seamless infinite loop
+  marqueeTrack.innerHTML = items + items + items;
 }
 
 // ==========================================================
@@ -967,8 +936,7 @@ function init() {
   renderSiteDetails();
   renderFeaturedProducts('all');
   setupCatalogControls();
-  renderBrandsStrip('all');
-  setupBrandFilters();
+  renderBrandsStrip();
   setupEstimator();
   setupSizeMatrix();
   setupFaqAccordion();
