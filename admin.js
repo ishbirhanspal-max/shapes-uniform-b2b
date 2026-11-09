@@ -49,31 +49,31 @@ const defaultSiteData = {
       id: 'school',
       title: 'School Uniforms',
       description: 'Durable, comfortable school uniforms including blazers, shirts, trousers, skirts, and PE kits tailored for institutional bulk requirements across all grade levels.',
-      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/school_uniform.jpg'
     },
     {
       id: 'medical',
       title: 'Hospital & Medical Uniforms',
       description: 'Ergonomic scrub sets, lab coats, and support staff uniforms crafted with breathable, antimicrobial, and fluid-resistant textiles.',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/medical_scrubs.jpg'
     },
     {
       id: 'industrial',
       title: 'Industrial & Safety Wear',
       description: 'Heavy-duty high-visibility coveralls, fire-retardant utility jackets, and reinforced trousers engineered for extreme environments.',
-      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/industrial_security.jpg'
     },
     {
       id: 'security',
       title: 'Security & Tactical Uniforms',
       description: 'Durable uniform shirts, utility trousers, badges, and caps configured for private security officers, pilots, and field patrol teams.',
-      image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/security_guard_uniform.jpg'
     },
     {
       id: 'chef',
       title: 'Chef & Hospitality Coats',
       description: 'Double-breasted breathable chef coats, protective aprons, service vests, and kitchen staff trousers built to withstand kitchen heat.',
-      image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/chef_coat.jpg'
     },
     {
       id: 'tshirts',
@@ -91,7 +91,7 @@ const defaultSiteData = {
       id: 'housekeeping',
       title: 'Spa & Housekeeping Uniform',
       description: 'Clean-cut, flexible tunic tops and matching trousers tailored for salon, spa, clinical care, and facility maintenance personnel.',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/spa_housekeeping_tunic.jpg'
     },
     {
       id: 'costumes',

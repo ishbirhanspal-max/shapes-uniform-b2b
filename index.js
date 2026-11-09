@@ -23,7 +23,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Colorfast Poly-Cotton Twill, Breathable Shirting',
       description: 'Durable, comfortable school uniforms including blazers, shirts, trousers, skirts, pinafores, and sports PE kits tailored for all grade levels.',
-      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/school_uniform.jpg'
     },
     {
       id: 'cat-corporate',
@@ -43,7 +43,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Fluid-Repellent Antimicrobial 4-Way Stretch Poplin',
       description: 'Ergonomic scrub sets, doctor lab coats, and nursing tunics crafted with breathable, antimicrobial, and fluid-resistant textiles.',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/medical_scrubs.jpg'
     },
     {
       id: 'cat-hospitality',
@@ -53,7 +53,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Stain-Resistant Easy-Wash Poly-Viscose Tunic Fabric',
       description: 'Front desk suiting, spa & housekeeping tunics, bellhop uniforms, and service vests tailored for premier hospitality environments.',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/hotel_hospitality.jpg'
     },
     {
       id: 'cat-industrial',
@@ -63,7 +63,7 @@ const defaultSiteData = {
       moq: '50 - 100 Units',
       fabrics: 'Heavy 280-320 GSM Cotton Drill, Fire-Retardant Finish',
       description: 'Heavy-duty high-visibility boiler suits, safety jackets, and tactical security officer uniforms built for rigorous everyday use.',
-      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/industrial_security.jpg'
     },
     {
       id: 'cat-chef',
@@ -73,7 +73,7 @@ const defaultSiteData = {
       moq: '50 - 100 Units',
       fabrics: 'Heat-Resistant Cotton-Poly Twill, Air-Vent Mesh',
       description: 'Double-breasted breathable chef coats, protective kitchen aprons, and staff trousers engineered to withstand kitchen heat.',
-      image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/chef_coat.jpg'
     },
     {
       id: 'cat-tshirts',
@@ -126,7 +126,7 @@ const defaultSiteData = {
       moq: '100 Sets',
       fabrics: 'Colorfast Poly-Cotton Twill Weave',
       description: 'Standard institutional school sets comprising collared shirt, pleated skirt or trouser, custom woven tie, and socks.',
-      image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/school_uniform.jpg'
     },
     {
       id: 'prod-4',
@@ -136,7 +136,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Heavyweight Serge Wool / Poly-Viscose',
       description: 'Formal school academy blazer with brass or engraved buttons and high-definition Tajima computerized school crest embroidery.',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/school_uniform.jpg'
     },
     {
       id: 'prod-5',
@@ -146,7 +146,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Fluid-Resistant 4-Way Stretch Poplin',
       description: 'V-neck scrub top with multi-pocket cargo pants. Breathable, quick-dry, and resistant to hospital bleaching protocols.',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/medical_scrubs.jpg'
     },
     {
       id: 'prod-6',
@@ -156,7 +156,7 @@ const defaultSiteData = {
       moq: '50 Pieces',
       fabrics: 'Heavy 100% Mercerized Cotton Twill',
       description: 'Full-length knee doctor lab coat with reinforced side vents, iPad/tablet pocket, and doctor name embroidery.',
-      image: 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/doctor_lab_coat.jpg'
     },
     {
       id: 'prod-7',
@@ -166,7 +166,7 @@ const defaultSiteData = {
       moq: '50 Pieces',
       fabrics: 'Heat-Resistant Cotton-Poly Twill',
       description: 'Professional chef jacket with removable stud buttons, back underarm air-vent mesh, and thermometer sleeve pocket.',
-      image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/chef_coat.jpg'
     },
     {
       id: 'prod-8',
@@ -176,7 +176,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Lightweight Poly-Viscose Tunic Fabric',
       description: 'Comfortable Mandarin collar tunic top with flexible drawstring pants for wellness spas, salons, and housekeeping personnel.',
-      image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/spa_housekeeping_tunic.jpg'
     },
     {
       id: 'prod-9',
@@ -186,7 +186,7 @@ const defaultSiteData = {
       moq: '50 Units',
       fabrics: '280-320 GSM Heavy Cotton Drill',
       description: 'Rugged one-piece industrial coverall with 3M reflective safety tape, two-way heavy brass zip, and tool pockets.',
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/industrial_security.jpg'
     },
     {
       id: 'prod-10',
@@ -196,7 +196,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Reinforced Ripstop Weave / Heavy Poly-Wool',
       description: 'Crisp epauletted security shirt, lanyard, whistle cord, tactical utility trousers, and customized insignia patches.',
-      image: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80'
+      image: 'images/uniforms/security_guard_uniform.jpg'
     },
     {
       id: 'prod-11',
