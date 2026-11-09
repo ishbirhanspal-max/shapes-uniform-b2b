@@ -11,7 +11,7 @@ const defaultSiteData = {
     email: 'shapesuniform@gmail.com',
     address: '504, Shubh Apartments, Aziz Baug, Mahul Road, Chembur, Mumbai - 400074',
     openingHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sunday: Closed',
-    webhookUrl: ''
+    webhookUrl: 'https://script.google.com/macros/s/AKfycbwhgX47ZGkxCWd1nG48cFPaejScGV3OdpT_o5dPS0V42vIM3YFdZ21Ehow9UjDeOK0u/exec'
   },
   // 8 Specialized Categories
   categories: [
@@ -256,6 +256,9 @@ function loadConfiguration() {
     try {
       const parsed = JSON.parse(saved);
       siteData.settings = { ...defaultSiteData.settings, ...(parsed.settings || {}) };
+      if (!siteData.settings.webhookUrl) {
+        siteData.settings.webhookUrl = defaultSiteData.settings.webhookUrl;
+      }
       siteData.categories = defaultSiteData.categories;
       siteData.products = defaultSiteData.products;
       siteData.brands = defaultSiteData.brands;
@@ -900,8 +903,8 @@ function setupFormSubmitListener() {
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
 
-    // 3. Dispatch to Google Sheets Webhook if configured
-    const webhook = siteData.settings.webhookUrl || localStorage.getItem('shapes_google_sheets_webhook');
+    // 3. Dispatch to Google Sheets Webhook
+    const webhook = siteData.settings.webhookUrl || localStorage.getItem('shapes_google_sheets_webhook') || 'https://script.google.com/macros/s/AKfycbwhgX47ZGkxCWd1nG48cFPaejScGV3OdpT_o5dPS0V42vIM3YFdZ21Ehow9UjDeOK0u/exec';
     if (webhook && webhook.trim().startsWith('http')) {
       fetch(webhook.trim(), {
         method: 'POST',

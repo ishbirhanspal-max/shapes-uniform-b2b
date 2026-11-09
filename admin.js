@@ -9,7 +9,7 @@ const defaultSiteData = {
     email: 'shapesuniform@gmail.com',
     address: '504, Shubh Apartments, Aziz Baug, Mahul Road, Chembur, Mumbai - 400074',
     openingHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sunday: Closed',
-    webhookUrl: '',
+    webhookUrl: 'https://script.google.com/macros/s/AKfycbwhgX47ZGkxCWd1nG48cFPaejScGV3OdpT_o5dPS0V42vIM3YFdZ21Ehow9UjDeOK0u/exec',
     capacityStats: [
       { label: 'Corporate Clients Served', value: '250+ Brands' },
       { label: 'Quality Inspection Levels', value: '3-Tier QA Check' },
@@ -132,6 +132,10 @@ function loadSiteData() {
     try {
       siteData = JSON.parse(saved);
       siteData.brands = defaultSiteData.brands;
+      if (!siteData.settings || !siteData.settings.webhookUrl) {
+        siteData.settings = siteData.settings || {};
+        siteData.settings.webhookUrl = defaultSiteData.settings.webhookUrl;
+      }
       if (!siteData.categories || siteData.categories.length < defaultSiteData.categories.length) {
         siteData.categories = defaultSiteData.categories;
       }

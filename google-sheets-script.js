@@ -156,3 +156,4 @@ function doGet(e) {
     .createTextOutput("Shapes Uniform Google Sheets Webhook is active and listening for POST inquiries.")
     .setMimeType(ContentService.MimeType.TEXT);
 }
+
