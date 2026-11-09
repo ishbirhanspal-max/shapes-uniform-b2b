@@ -2,9 +2,9 @@
 const defaultSiteData = {
   settings: {
     brandName: 'Shapes Uniform',
-    tagline: 'Premium Bulk Uniforms & Garment Manufacturing',
-    heroTitle: 'Corporate & Bulk Uniform Manufacturing Specialists',
-    heroDescription: 'Shapes Uniform designs and manufactures high-grade custom uniforms for corporate offices, medical personnel, security staff, school divisions, and industrial environments. We deliver exact custom stitching, industrial-strength fabrics, and guaranteed timely delivery.',
+    tagline: 'Premium Custom Uniforms for Schools, Corporates & Hospitals',
+    heroTitle: 'Premium Custom Uniforms for Schools, Corporates & Hospitals',
+    heroDescription: 'We design and manufacture high-grade custom uniforms with durable fabrics, computerized logo embroidery, precision stitching, and guaranteed on-time delivery across India.',
     phone: '9833392756',
     email: 'shapesuniform@gmail.com',
     address: '504, Shubh Apartments, Aziz Baug, Mahul Road, Chembur, Mumbai - 400074',

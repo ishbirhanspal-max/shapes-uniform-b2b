@@ -1,181 +1,267 @@
-// Shapes Uniform - Core B2B Client Application & Interactive Portfolio
-// Initial static default seed data
+// Shapes Uniform - Official B2B Client Application & Dynamic Catalog
+// Strictly adhering to Deep Red #C0392B, friendly terminology, and mobile-first responsiveness
+
 const defaultSiteData = {
   settings: {
     brandName: 'Shapes Uniform',
-    tagline: 'Premium Bulk Uniforms & Garment Manufacturing',
-    heroTitle: 'Corporate & Bulk Uniform Manufacturing Specialists',
-    heroDescription: 'Shapes Uniform designs and manufactures high-grade custom uniforms for corporate offices, medical personnel, security staff, school divisions, and industrial environments. We deliver exact custom stitching, industrial-strength fabrics, and guaranteed timely delivery.',
+    tagline: 'Premium Custom Uniforms for Schools, Corporates & Hospitals',
+    heroTitle: 'Premium Custom Uniforms for Schools, Corporates & Hospitals',
+    heroDescription: 'We design and manufacture high-grade custom uniforms with durable fabrics, computerized logo embroidery, precision stitching, and guaranteed on-time delivery across India.',
     phone: '9833392756',
     email: 'shapesuniform@gmail.com',
     address: '504, Shubh Apartments, Aziz Baug, Mahul Road, Chembur, Mumbai - 400074',
     openingHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sunday: Closed',
-    webhookUrl: '',
-    capacityStats: [
-      { label: 'Corporate Clients Served', value: '250+ Brands' },
-      { label: 'Quality Inspection Levels', value: '3-Tier QA Check' },
-      { label: 'Timely Shipment Metric', value: '99.4% On-Time' },
-      { label: 'Manufacturing Heritage', value: 'Since 2013' }
-    ]
+    webhookUrl: ''
   },
+  // 8 Specialized Categories
+  categories: [
+    {
+      id: 'cat-school',
+      title: 'School Uniforms',
+      group: 'school',
+      tag: 'K-12 & Academies',
+      moq: '50 - 100 Sets',
+      fabrics: 'Colorfast Poly-Cotton Twill, Breathable Shirting',
+      description: 'Durable, comfortable school uniforms including blazers, shirts, trousers, skirts, pinafores, and sports PE kits tailored for all grade levels.',
+      image: 'https://static.wixstatic.com/media/af05e4_adbbb1be1510499a9b49b99cf8d8b257~mv2.jpg'
+    },
+    {
+      id: 'cat-corporate',
+      title: 'Corporate Uniforms',
+      group: 'corporate',
+      tag: 'Executive & Formal',
+      moq: '50 - 100 Sets',
+      fabrics: 'Poly-Viscose Suiting, 100% Cotton, Wrinkle-Free Weaves',
+      description: 'Sophisticated executive blazers, tailored formal trousers, corporate suits, and office shirting designed to reflect professionalism.',
+      image: 'https://static.wixstatic.com/media/af05e4_8ae6038793054ab3b4466cbee9e1003d~mv2.jpg'
+    },
+    {
+      id: 'cat-medical',
+      title: 'Medical & Scrubs',
+      group: 'medical',
+      tag: 'Healthcare & Clinical',
+      moq: '50 - 100 Sets',
+      fabrics: 'Fluid-Repellent Antimicrobial 4-Way Stretch Poplin',
+      description: 'Ergonomic scrub sets, doctor lab coats, and nursing tunics crafted with breathable, antimicrobial, and fluid-resistant textiles.',
+      image: 'https://static.wixstatic.com/media/af05e4_3f5bebae858040d5928bd618226dce9a~mv2.jpg'
+    },
+    {
+      id: 'cat-hospitality',
+      title: 'Hotel & Hospitality',
+      group: 'hospitality',
+      tag: 'Hotels & Resorts',
+      moq: '50 - 100 Sets',
+      fabrics: 'Stain-Resistant Easy-Wash Poly-Viscose Tunic Fabric',
+      description: 'Front desk suiting, spa & housekeeping tunics, bellhop uniforms, and service vests tailored for premier hospitality environments.',
+      image: 'https://static.wixstatic.com/media/af05e4_5a3512b83547430796f3dc673bbb5d90~mv2.jpg'
+    },
+    {
+      id: 'cat-industrial',
+      title: 'Industrial & Security',
+      group: 'industrial',
+      tag: 'Factories & Security',
+      moq: '50 - 100 Units',
+      fabrics: 'Heavy 280-320 GSM Cotton Drill, Fire-Retardant Finish',
+      description: 'Heavy-duty high-visibility boiler suits, safety jackets, and tactical security officer uniforms built for rigorous everyday use.',
+      image: 'https://static.wixstatic.com/media/af05e4_f582c609f87f4e79946a4c760286031d~mv2.jpg'
+    },
+    {
+      id: 'cat-chef',
+      title: 'Chef Coats',
+      group: 'hospitality',
+      tag: 'Kitchen & Fine Dining',
+      moq: '50 - 100 Units',
+      fabrics: 'Heat-Resistant Cotton-Poly Twill, Air-Vent Mesh',
+      description: 'Double-breasted breathable chef coats, protective kitchen aprons, and staff trousers engineered to withstand kitchen heat.',
+      image: 'https://static.wixstatic.com/media/af05e4_ca63ce636e294cc1b211055342cb2b48~mv2.jpg'
+    },
+    {
+      id: 'cat-tshirts',
+      title: 'T-Shirts & Custom',
+      group: 'events',
+      tag: 'Corporate & Events',
+      moq: '100 Units',
+      fabrics: '180-220 GSM Bio-Washed Combed Cotton, Dry-Fit Poly',
+      description: 'Custom polo t-shirts, crew necks, sports jerseys, and event t-shirts with detailed embroidery or vibrant full-color printing.',
+      image: 'https://static.wixstatic.com/media/af05e4_066ab6b6223746cfb593d4fe49db51d7~mv2.jpg'
+    },
+    {
+      id: 'cat-costumes',
+      title: 'Costumes & Dance',
+      group: 'events',
+      tag: 'Stage & Annual Day',
+      moq: '50 Sets',
+      fabrics: 'Stage Satin, Stretch Lycra, Shimmer Velvet & Trims',
+      description: 'Vibrant, custom-tailored stage costumes, thematic character outfits, and coordinate accessories designed for school annual day celebrations.',
+      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+    }
+  ],
+  // 12 Featured Catalog Products
+  products: [
+    {
+      id: 'prod-1',
+      title: 'Executive Corporate Blazer',
+      category: 'corporate',
+      tag: 'Corporate Wear',
+      moq: '50 Pieces',
+      fabrics: 'Premium Poly-Viscose Suiting',
+      description: 'Tailored executive blazer with structured shoulder fit, interior satin lining, and custom corporate crest embroidery.',
+      image: 'https://static.wixstatic.com/media/af05e4_8ae6038793054ab3b4466cbee9e1003d~mv2.jpg'
+    },
+    {
+      id: 'prod-2',
+      title: 'Formal Office Trouser & Shirt Set',
+      category: 'corporate',
+      tag: 'Corporate Wear',
+      moq: '100 Sets',
+      fabrics: 'Wrinkle-Free Breathable Cotton Blend',
+      description: 'Crisp button-down corporate office shirts paired with flat-front formal trousers in customized Pantone corporate shades.',
+      image: 'https://static.wixstatic.com/media/af05e4_355a022ad6c04542ad1ddc44f99fe1d4~mv2.jpg'
+    },
+    {
+      id: 'prod-3',
+      title: 'Classic School Uniform Set with Tie',
+      category: 'school',
+      tag: 'School Uniforms',
+      moq: '100 Sets',
+      fabrics: 'Colorfast Poly-Cotton Twill Weave',
+      description: 'Standard institutional school sets comprising collared shirt, pleated skirt or trouser, custom woven tie, and socks.',
+      image: 'https://static.wixstatic.com/media/af05e4_adbbb1be1510499a9b49b99cf8d8b257~mv2.jpg'
+    },
+    {
+      id: 'prod-4',
+      title: 'Institutional School Blazer & Crest',
+      category: 'school',
+      tag: 'School Uniforms',
+      moq: '50 Sets',
+      fabrics: 'Heavyweight Serge Wool / Poly-Viscose',
+      description: 'Formal school academy blazer with brass or engraved buttons and high-definition Tajima computerized school crest embroidery.',
+      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+    },
+    {
+      id: 'prod-5',
+      title: 'Antimicrobial Medical Scrub Suit',
+      category: 'medical',
+      tag: 'Medical & Scrubs',
+      moq: '50 Sets',
+      fabrics: 'Fluid-Resistant 4-Way Stretch Poplin',
+      description: 'V-neck scrub top with multi-pocket cargo pants. Breathable, quick-dry, and resistant to hospital bleaching protocols.',
+      image: 'https://static.wixstatic.com/media/af05e4_3f5bebae858040d5928bd618226dce9a~mv2.jpg'
+    },
+    {
+      id: 'prod-6',
+      title: 'Doctor Consultation Lab Coat',
+      category: 'medical',
+      tag: 'Medical & Scrubs',
+      moq: '50 Pieces',
+      fabrics: 'Heavy 100% Mercerized Cotton Twill',
+      description: 'Full-length knee doctor lab coat with reinforced side vents, iPad/tablet pocket, and doctor name embroidery.',
+      image: 'https://static.wixstatic.com/media/af05e4_b900aab891f04adfa3dd93284dec1bde~mv2.jpg'
+    },
+    {
+      id: 'prod-7',
+      title: 'Premium Double-Breasted Chef Jacket',
+      category: 'hospitality',
+      tag: 'Chef Coats',
+      moq: '50 Pieces',
+      fabrics: 'Heat-Resistant Cotton-Poly Twill',
+      description: 'Professional chef jacket with removable stud buttons, back underarm air-vent mesh, and thermometer sleeve pocket.',
+      image: 'https://static.wixstatic.com/media/af05e4_ca63ce636e294cc1b211055342cb2b48~mv2.jpg'
+    },
+    {
+      id: 'prod-8',
+      title: 'Spa & Housekeeping Tunic Set',
+      category: 'hospitality',
+      tag: 'Hotel & Hospitality',
+      moq: '50 Sets',
+      fabrics: 'Lightweight Poly-Viscose Tunic Fabric',
+      description: 'Comfortable Mandarin collar tunic top with flexible drawstring pants for wellness spas, salons, and housekeeping personnel.',
+      image: 'https://static.wixstatic.com/media/af05e4_5a3512b83547430796f3dc673bbb5d90~mv2.jpg'
+    },
+    {
+      id: 'prod-9',
+      title: 'Heavy Industrial Boiler Suit / Coverall',
+      category: 'industrial',
+      tag: 'Industrial & Security',
+      moq: '50 Units',
+      fabrics: '280-320 GSM Heavy Cotton Drill',
+      description: 'Rugged one-piece industrial coverall with 3M reflective safety tape, two-way heavy brass zip, and tool pockets.',
+      image: 'https://static.wixstatic.com/media/af05e4_f582c609f87f4e79946a4c760286031d~mv2.jpg'
+    },
+    {
+      id: 'prod-10',
+      title: 'Security Guard Field Uniform Set',
+      category: 'industrial',
+      tag: 'Industrial & Security',
+      moq: '50 Sets',
+      fabrics: 'Reinforced Ripstop Weave / Heavy Poly-Wool',
+      description: 'Crisp epauletted security shirt, lanyard, whistle cord, tactical utility trousers, and customized insignia patches.',
+      image: 'https://static.wixstatic.com/media/af05e4_b900aab891f04adfa3dd93284dec1bde~mv2.jpg'
+    },
+    {
+      id: 'prod-11',
+      title: 'Custom Bio-Washed Corporate Polo T-Shirt',
+      category: 'corporate',
+      tag: 'T-Shirts & Custom',
+      moq: '100 Units',
+      fabrics: '220 GSM Honeycomb Pique Cotton',
+      description: 'Bio-polished pique cotton polo shirt with ribbed collar and cuffs, customized with high-density logo embroidery.',
+      image: 'https://static.wixstatic.com/media/af05e4_066ab6b6223746cfb593d4fe49db51d7~mv2.jpg'
+    },
+    {
+      id: 'prod-12',
+      title: 'School Annual Day Thematic Stage Costume',
+      category: 'school',
+      tag: 'Costumes & Dance',
+      moq: '50 Sets',
+      fabrics: 'Vibrant Stage Satin, Lycra & Velvet',
+      description: 'Complete theatrical production costumes designed according to choreography themes, historical periods, or folk dance forms.',
+      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+    }
+  ],
+  // Real Client Brands
   brands: [
+    { name: 'VIBGYOR High School', logo: 'logos/vibgyor.svg', tag: 'School Uniforms', category: 'education' },
+    { name: 'EuroKids Preschool', logo: 'logos/eurokids.svg', tag: 'School Uniforms', category: 'education' },
+    { name: 'St. Gregorios High School', logo: 'logos/st_gregorios.svg', tag: 'School Uniforms', category: 'education' },
+    { name: 'Trilegal Legal Firm', logo: 'https://static.wixstatic.com/media/99bdf8_016019b5f5214f979e21953d9afc32d8~mv2.webp/v1/fill/w_420,h_140,al_c,lg_1,q_80,enc_avif,quality_auto/cropped-Trilegal-Logo.webp', tag: 'Legal & Corporate', category: 'corporate' },
+    { name: 'Gandhar Oil Refinery', logo: 'https://static.wixstatic.com/media/99bdf8_25d4da38e43c4cee84b463fdc0cfa463~mv2.png/v1/fill/w_806,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/gandhar%20logo.png', tag: 'Industrial Energy', category: 'industrial' },
+    { name: 'Chembur Gymkhana Club', logo: 'https://static.wixstatic.com/media/99bdf8_36c010a3394144d19dc460ef1dbbb796~mv2.jpg/v1/fill/w_352,h_408,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/chembur%20gymkhana.jpg', tag: 'Hospitality & Leisure', category: 'industrial' },
     { name: 'Four Fountains De-stress Spa', logo: 'logos/four_fountains.svg', tag: 'Spa & Wellness', category: 'spa' },
     { name: 'HR Wellness Spa & Salon', logo: 'logos/hr_wellness.svg', tag: 'Spa & Salon', category: 'spa' },
     { name: 'Zen Aura Spa', logo: 'logos/zen_aura.svg', tag: 'Spa & Wellness', category: 'spa' },
     { name: 'Sparogya Luxury Spa', logo: 'https://static.wixstatic.com/media/99bdf8_594c1340b45e4c169910bea22c4dcf53~mv2.png', tag: 'Spa & Wellness', category: 'spa' },
     { name: 'AIS Wellness Group', logo: 'https://static.wixstatic.com/media/99bdf8_d12286eaefdd44cfafeb0e7a8d3602a7~mv2.jpg', tag: 'Healthcare & Wellness', category: 'spa' },
-    { name: 'ALYF', logo: 'logos/alyf.svg', tag: 'Corporate & Real Estate', category: 'corporate' },
-    { name: 'Mobikon', logo: 'logos/mobikon.svg', tag: 'Technology & Corporate', category: 'corporate' },
-    { name: 'World Dance Company', logo: 'logos/world_dance.svg', tag: 'Costumes & Performing Arts', category: 'industrial' },
-    { name: 'InVideo - Play Your Ideas', logo: 'logos/invideo.svg', tag: 'Media & Technology', category: 'corporate' },
-    { name: 'VIBGYOR High School', logo: 'logos/vibgyor.svg', tag: 'School Uniforms', category: 'education' },
-    { name: 'EuroKids Preschool', logo: 'logos/eurokids.svg', tag: 'School Uniforms', category: 'education' },
+    { name: 'ALYF Real Estate', logo: 'logos/alyf.svg', tag: 'Corporate & Real Estate', category: 'corporate' },
+    { name: 'Mobikon Technologies', logo: 'logos/mobikon.svg', tag: 'Technology & Corporate', category: 'corporate' },
+    { name: 'World Dance Company', logo: 'logos/world_dance.svg', tag: 'Performing Arts', category: 'industrial' },
+    { name: 'InVideo Media', logo: 'logos/invideo.svg', tag: 'Media & Technology', category: 'corporate' },
     { name: 'Say Cheez Salon', logo: 'logos/say_cheez.svg', tag: 'Salon & Grooming', category: 'spa' },
     { name: 'Tip Top Unisex Salon', logo: 'logos/tip_top.svg', tag: 'Salon & Grooming', category: 'spa' },
-    { name: 'St. Gregorios High School', logo: 'logos/st_gregorios.svg', tag: 'School Uniforms', category: 'education' },
-    { name: 'Sudha - Pure By Nature', logo: 'logos/sudha.svg', tag: 'Retail & Wellness', category: 'spa' },
-    { name: 'Bloom Hair Transplant', logo: 'logos/bloom_hair.svg', tag: 'Medical & Clinical', category: 'spa' },
-    { name: 'Trilegal Legal Firm', logo: 'https://static.wixstatic.com/media/99bdf8_016019b5f5214f979e21953d9afc32d8~mv2.webp/v1/fill/w_420,h_140,al_c,lg_1,q_80,enc_avif,quality_auto/cropped-Trilegal-Logo.webp', tag: 'Legal & Corporate', category: 'corporate' },
-    { name: 'Gandhar Oil Refinery', logo: 'https://static.wixstatic.com/media/99bdf8_25d4da38e43c4cee84b463fdc0cfa463~mv2.png/v1/fill/w_806,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/gandhar%20logo.png', tag: 'Industrial Energy', category: 'industrial' },
-    { name: 'Chembur Gymkhana Club', logo: 'https://static.wixstatic.com/media/99bdf8_36c010a3394144d19dc460ef1dbbb796~mv2.jpg/v1/fill/w_352,h_408,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/chembur%20gymkhana.jpg', tag: 'Hospitality & Leisure', category: 'industrial' }
-  ],
-  categories: [
-    {
-      id: 'corporate',
-      title: 'Corporate Wear',
-      group: 'corporate',
-      tag: 'Executive & Formal',
-      fabrics: 'Poly-Viscose Suiting, 100% Cotton, Wrinkle-Free Blend',
-      moq: '100 Sets',
-      description: 'Sophisticated suits, premium blazers, executive shirts, and formal trousers designed to reflect professionalism and command authority.',
-      image: 'https://static.wixstatic.com/media/af05e4_8ae6038793054ab3b4466cbee9e1003d~mv2.jpg'
-    },
-    {
-      id: 'school',
-      title: 'School Uniforms',
-      group: 'school',
-      tag: 'K-12 & Colleges',
-      fabrics: 'Colorfast Poly-Cotton Twill, Breathable Shirting',
-      moq: '150 Sets',
-      description: 'Durable, comfortable school uniforms including blazers, shirts, trousers, skirts, and PE kits tailored for institutional bulk requirements across all grade levels.',
-      image: 'https://static.wixstatic.com/media/af05e4_adbbb1be1510499a9b49b99cf8d8b257~mv2.jpg'
-    },
-    {
-      id: 'medical',
-      title: 'Hospital & Medical Uniforms',
-      group: 'medical',
-      tag: 'Healthcare & Surgery',
-      fabrics: 'Fluid-Repellent Antimicrobial 4-Way Stretch Poplin',
-      moq: '100 Sets',
-      description: 'Ergonomic scrub sets, lab coats, and support staff uniforms crafted with breathable, antimicrobial, and fluid-resistant textiles.',
-      image: 'https://static.wixstatic.com/media/af05e4_3f5bebae858040d5928bd618226dce9a~mv2.jpg'
-    },
-    {
-      id: 'industrial',
-      title: 'Industrial & Safety Wear',
-      group: 'industrial',
-      tag: 'Factories & Refineries',
-      fabrics: 'Heavy 280-320 GSM Cotton Drill, Fire-Retardant Finish',
-      moq: '100 Units',
-      description: 'Heavy-duty high-visibility coveralls, fire-retardant utility jackets, and reinforced trousers engineered for extreme environments.',
-      image: 'https://static.wixstatic.com/media/af05e4_f582c609f87f4e79946a4c760286031d~mv2.jpg'
-    },
-    {
-      id: 'security',
-      title: 'Security & Tactical Uniforms',
-      group: 'industrial',
-      tag: 'Field Officers & Guards',
-      fabrics: 'Reinforced Ripstop Weave, Heavy Poly-Wool',
-      moq: '100 Sets',
-      description: 'Durable uniform shirts, utility trousers, badges, and caps configured for private security officers, pilots, and field patrol teams.',
-      image: 'https://static.wixstatic.com/media/af05e4_b900aab891f04adfa3dd93284dec1bde~mv2.jpg'
-    },
-    {
-      id: 'chef',
-      title: 'Chef & Hospitality Coats',
-      group: 'hospitality',
-      tag: 'Hotels & Fine Dining',
-      fabrics: 'Heat-Resistant Cotton-Poly Twill, Air-Vent Mesh',
-      moq: '100 Units',
-      description: 'Double-breasted breathable chef coats, protective aprons, service vests, and kitchen staff trousers built to withstand kitchen heat.',
-      image: 'https://static.wixstatic.com/media/af05e4_ca63ce636e294cc1b211055342cb2b48~mv2.jpg'
-    },
-    {
-      id: 'tshirts',
-      title: 'T-Shirts & Event Wear',
-      group: 'events',
-      tag: 'Promotions & Marathons',
-      fabrics: '180-200 GSM Bio-Washed Combed Cotton, Dry-Fit Poly',
-      moq: '200 Units',
-      description: 'Custom round-neck, V-neck, and collar t-shirts available in bulk for corporate events, marathons, staff outings, and promotional campaigns with full-color printing.',
-      image: 'https://static.wixstatic.com/media/af05e4_d1298effb2da4126b072285f1614360f~mv2.jpg'
-    },
-    {
-      id: 'polos',
-      title: 'Polo Shirts & Promotional Wear',
-      group: 'events',
-      tag: 'Workplace Casual & Golf',
-      fabrics: '220 GSM Honeycomb Pique Cotton, Bio-Polished',
-      moq: '100 Units',
-      description: 'Custom corporate polo shirts, event t-shirts, and casual workplace wear customized with premium direct-to-garment printing or detailed embroidery.',
-      image: 'https://static.wixstatic.com/media/af05e4_066ab6b6223746cfb593d4fe49db51d7~mv2.jpg'
-    },
-    {
-      id: 'housekeeping',
-      title: 'Spa & Housekeeping Uniform',
-      group: 'hospitality',
-      tag: 'Wellness & Resorts',
-      fabrics: 'Lightweight Easy-Wash Poly-Viscose Tunic Fabric',
-      moq: '100 Sets',
-      description: 'Clean-cut, flexible tunic tops and matching trousers tailored for salon, spa, clinical care, and facility maintenance personnel.',
-      image: 'https://static.wixstatic.com/media/af05e4_5a3512b83547430796f3dc673bbb5d90~mv2.jpg'
-    },
-    {
-      id: 'costumes',
-      title: 'School Annual Day Costumes',
-      group: 'events',
-      tag: 'Stage & Theatrical Outfits',
-      fabrics: 'Vibrant Stage Satin, Stretch Lycra, Shimmer Velvet',
-      moq: '50 Sets',
-      description: 'Vibrant, premium custom-tailored stage costumes, thematic character outfits, and coordinate accessories designed for school annual day celebrations and theatre productions.',
-      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
-    },
-    {
-      id: 'others',
-      title: 'Linens & Accessories',
-      group: 'corporate',
-      tag: 'Hotel & Institutional Linens',
-      fabrics: 'Commercial High-Thread Weaves, Satin Stripe',
-      moq: '100 Units',
-      description: 'Quality bedsheets, hospital pillowcases, industrial aprons, school ties, belts, socks, and other customizable uniform components.',
-      image: 'https://static.wixstatic.com/media/af05e4_355a022ad6c04542ad1ddc44f99fe1d4~mv2.jpg'
-    }
+    { name: 'Sudha Wellness', logo: 'logos/sudha.svg', tag: 'Retail & Wellness', category: 'spa' },
+    { name: 'Bloom Hair Clinic', logo: 'logos/bloom_hair.svg', tag: 'Medical & Clinical', category: 'spa' }
   ],
   inquiries: []
 };
 
-// State manager holding site data
+// State manager
 let siteData = { ...defaultSiteData };
-let currentCategoryFilter = 'all';
-let currentBrandFilter = 'all';
+let currentCatalogFilter = 'all';
+let currentSearchQuery = '';
 
-// Load configurations from localStorage
+// Load configuration
 function loadConfiguration() {
   const saved = localStorage.getItem('shapes_uniform_b2b_data');
   if (saved) {
     try {
-      siteData = JSON.parse(saved);
-      // Synchronize latest brands and categories data
+      const parsed = JSON.parse(saved);
+      siteData.settings = { ...defaultSiteData.settings, ...(parsed.settings || {}) };
+      siteData.categories = defaultSiteData.categories;
+      siteData.products = defaultSiteData.products;
       siteData.brands = defaultSiteData.brands;
-      if (!siteData.settings) siteData.settings = defaultSiteData.settings;
-      if (!siteData.categories || siteData.categories.length < defaultSiteData.categories.length) {
-        siteData.categories = defaultSiteData.categories;
-      }
-      localStorage.setItem('shapes_uniform_b2b_data', JSON.stringify(siteData));
+      siteData.inquiries = parsed.inquiries || [];
     } catch (e) {
-      console.error('Failed to parse site data, resetting', e);
       siteData = { ...defaultSiteData };
-      localStorage.setItem('shapes_uniform_b2b_data', JSON.stringify(defaultSiteData));
     }
   } else {
     siteData = { ...defaultSiteData };
@@ -183,7 +269,6 @@ function loadConfiguration() {
   }
 }
 
-// Save configuration state
 function saveConfiguration() {
   localStorage.setItem('shapes_uniform_b2b_data', JSON.stringify(siteData));
 }
@@ -192,7 +277,6 @@ function saveConfiguration() {
 function renderSiteDetails() {
   const s = siteData.settings;
   
-  // Header texts
   const brandEl = document.getElementById('site-brand-name');
   if (brandEl) brandEl.innerText = s.brandName.toUpperCase();
   
@@ -202,23 +286,9 @@ function renderSiteDetails() {
   const phoneLink = document.getElementById('site-phone-link');
   if (phoneLink) phoneLink.setAttribute('href', `tel:${s.phone}`);
 
-  const mobPhone = document.getElementById('mobile-phone-link');
-  if (mobPhone) {
-    mobPhone.innerText = `Call: ${s.phone}`;
-    mobPhone.setAttribute('href', `tel:${s.phone}`);
-  }
-
-  const mobEmail = document.getElementById('mobile-email-text');
-  if (mobEmail) mobEmail.innerText = s.email;
-
-  // Hero elements
   const heroTitle = document.getElementById('hero-title-text');
-  if (heroTitle) heroTitle.innerText = s.heroTitle;
-  
-  const heroDesc = document.getElementById('hero-desc-text');
-  if (heroDesc) heroDesc.innerText = s.heroDescription;
+  if (heroTitle && s.heroTitle) heroTitle.innerHTML = 'Premium Custom Uniforms<br>for Schools, Corporates &amp; Hospitals';
 
-  // Contact info elements
   const infoPhone = document.getElementById('site-info-phone');
   if (infoPhone) {
     infoPhone.innerText = s.phone;
@@ -237,117 +307,148 @@ function renderSiteDetails() {
   const infoHours = document.getElementById('site-info-hours');
   if (infoHours) infoHours.innerText = s.openingHours;
 
-  // Footer elements
-  const footerBrand = document.getElementById('footer-brand-text');
-  if (footerBrand) footerBrand.innerText = s.brandName.toUpperCase();
-
-  const footerAddr = document.getElementById('footer-address-text');
-  if (footerAddr) footerAddr.innerText = s.address;
-
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.innerText = new Date().getFullYear();
 }
 
-// Render product category cards with interactive actions
-function renderCategoriesGrid(filter = 'all') {
-  const grid = document.getElementById('portfolio-categories-grid');
+// ==========================================================
+// FEATURED PRODUCTS CATALOG RENDERING & FILTERING
+// ==========================================================
+function renderFeaturedProducts(filter = 'all', query = '') {
+  const grid = document.getElementById('featured-products-grid');
   if (!grid) return;
 
-  const filtered = filter === 'all' 
-    ? siteData.categories 
-    : siteData.categories.filter(c => c.group === filter);
+  const q = query.trim().toLowerCase();
 
-  grid.innerHTML = filtered.map(cat => `
-    <div class="product-card hover-lift" data-category-id="${cat.id}">
-      <div class="card-image-wrapper">
+  const filtered = siteData.products.filter(item => {
+    const matchesFilter = (filter === 'all') || (item.category === filter);
+    const matchesQuery = !q || 
+      item.title.toLowerCase().includes(q) || 
+      item.description.toLowerCase().includes(q) || 
+      item.tag.toLowerCase().includes(q) ||
+      item.fabrics.toLowerCase().includes(q);
+    return matchesFilter && matchesQuery;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: var(--text-muted);">
+        <p style="font-size: 18px; margin-bottom: 8px;">No uniforms found matching "<strong>${query}</strong>".</p>
+        <p style="font-size: 14px;">Try searching for "blazer", "scrub", "school", or "chef".</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => `
+    <div class="product-item-card" data-product-id="${item.id}">
+      <div class="prod-img-frame">
+        <span class="prod-tag-pill">${item.tag}</span>
         <img 
-          src="${cat.image}" 
-          alt="${cat.title}" 
-          class="card-image"
+          src="${item.image}" 
+          alt="${item.title}" 
+          class="prod-img"
           loading="lazy"
           onerror="this.src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80'"
         />
-        <div class="card-image-overlay"></div>
-        <span class="card-category-badge">${cat.tag || 'B2B Uniform'}</span>
-        <span class="card-moq-pill">MOQ: ${cat.moq || '100 Pcs'}</span>
       </div>
-      <div class="card-body">
-        <h3 class="card-title">${cat.title}</h3>
-        <p class="card-text">${cat.description}</p>
-        <div class="card-fabric-chip">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <span>${cat.fabrics || 'Custom Mill Blend'}</span>
+      <div class="prod-body">
+        <h3 class="prod-title">${item.title}</h3>
+        <p class="prod-desc">${item.description}</p>
+        <div class="prod-fabric-info">
+          <span>🧵</span>
+          <span>${item.fabrics}</span>
         </div>
-        <div class="card-actions">
-          <button type="button" onclick="openProductModal('${cat.id}')" class="btn btn-outline card-spec-btn">
-            View Specs
+        <div class="prod-actions">
+          <button type="button" onclick="openProductModal('${item.id}')" class="btn btn-outline prod-spec-btn">
+            View Details
           </button>
-          <button type="button" onclick="handleCategorySelect('${cat.title}')" class="btn btn-primary card-inquire-btn">
-            <span>Request Sample</span>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          <button type="button" onclick="handleProductInquire('${item.title}')" class="btn btn-primary prod-enquire-btn">
+            Enquire &rarr;
           </button>
         </div>
       </div>
     </div>
   `).join('');
+}
 
-  // Populate dropdown in inquiry form
-  const select = document.getElementById('inquiry-category');
-  if (select && select.children.length === 0) {
-    select.innerHTML = siteData.categories.map(cat => `
-      <option value="${cat.title}">${cat.title}</option>
-    `).join('');
+// Setup Catalog Filters & Search
+function setupCatalogControls() {
+  const filterTabs = document.getElementById('catalog-filter-tabs');
+  const searchInput = document.getElementById('catalog-search-input');
+  const clearBtn = document.getElementById('catalog-search-clear');
+
+  if (filterTabs) {
+    filterTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-tab-btn');
+      if (!btn) return;
+
+      filterTabs.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      currentCatalogFilter = btn.getAttribute('data-filter') || 'all';
+      renderFeaturedProducts(currentCatalogFilter, currentSearchQuery);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      currentSearchQuery = e.target.value;
+      if (clearBtn) clearBtn.style.display = currentSearchQuery ? 'inline' : 'none';
+      renderFeaturedProducts(currentCatalogFilter, currentSearchQuery);
+    });
+  }
+
+  if (clearBtn && searchInput) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearchQuery = '';
+      clearBtn.style.display = 'none';
+      renderFeaturedProducts(currentCatalogFilter, '');
+    });
   }
 }
 
-// Category filter tabs listener
-function setupCategoryFilters() {
-  const filterBar = document.getElementById('category-filter-bar');
-  if (!filterBar) return;
-
-  filterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('.filter-tab-btn');
-    if (!btn) return;
-
-    filterBar.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    currentCategoryFilter = btn.getAttribute('data-filter') || 'all';
-    renderCategoriesGrid(currentCategoryFilter);
-  });
-}
-
-// Global filter helper for footer links
-window.filterPortfolio = function(filterGroup) {
-  const filterBtn = document.querySelector(`.filter-tab-btn[data-filter="${filterGroup}"]`);
+// Global Filter helper
+window.filterPortfolio = function(categoryGroup) {
+  const filterBtn = document.querySelector(`.filter-tab-btn[data-filter="${categoryGroup}"]`);
   if (filterBtn) {
     filterBtn.click();
   } else {
-    renderCategoriesGrid(filterGroup);
+    currentCatalogFilter = categoryGroup;
+    renderFeaturedProducts(categoryGroup, currentSearchQuery);
+  }
+  const portfolio = document.getElementById('portfolio');
+  if (portfolio) {
+    portfolio.scrollIntoView({ behavior: 'smooth' });
   }
 };
 
-// Action to trigger inquiry scroll and auto-selection
-window.handleCategorySelect = function(categoryName) {
+// Handle Direct Product Inquiry
+window.handleProductInquire = function(productTitle) {
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
-
     setTimeout(() => {
-      const select = document.getElementById('inquiry-category');
-      if (select) {
-        select.value = categoryName;
-        select.classList.add('highlight-select');
-        setTimeout(() => select.classList.remove('highlight-select'), 1500);
+      const msg = document.getElementById('form-message');
+      if (msg) {
+        msg.value = `I am interested in getting a wholesale quote for: ${productTitle}. Please share fabric samples and pricing.`;
+        msg.focus();
       }
-    }, 500);
+    }, 450);
   }
 };
 
-// Open Garment Details Modal
-window.openProductModal = function(catId) {
-  const cat = siteData.categories.find(c => c.id === catId);
-  if (!cat) return;
+// ==========================================================
+// MODAL DETAILS CONTROLLER
+// ==========================================================
+window.openProductModal = function(id) {
+  // Can be a category or a product
+  let item = siteData.products.find(p => p.id === id);
+  if (!item) {
+    item = siteData.categories.find(c => c.id === id);
+  }
+  if (!item) return;
 
   const overlay = document.getElementById('product-modal-overlay');
   const img = document.getElementById('modal-img');
@@ -355,24 +456,26 @@ window.openProductModal = function(catId) {
   const title = document.getElementById('modal-title');
   const desc = document.getElementById('modal-desc');
   const fabric = document.getElementById('modal-fabric');
+  const moq = document.getElementById('modal-moq');
   const inquireBtn = document.getElementById('modal-inquire-btn');
   const waBtn = document.getElementById('modal-wa-btn');
 
-  if (img) img.src = cat.image;
-  if (tag) tag.innerText = cat.tag || 'B2B Custom Garment';
-  if (title) title.innerText = cat.title;
-  if (desc) desc.innerText = cat.description;
-  if (fabric) fabric.innerText = cat.fabrics || 'Premium Mill-Direct Textile';
+  if (img) img.src = item.image;
+  if (tag) tag.innerText = item.tag || 'Custom Uniform';
+  if (title) title.innerText = item.title;
+  if (desc) desc.innerText = item.description;
+  if (fabric) fabric.innerText = item.fabrics || 'Premium Mill-Direct Blend';
+  if (moq) moq.innerText = `Minimum Order: ${item.moq || '50 - 100 Pieces'}`;
 
   if (inquireBtn) {
     inquireBtn.onclick = () => {
       closeProductModal();
-      handleCategorySelect(cat.title);
+      handleProductInquire(item.title);
     };
   }
 
   if (waBtn) {
-    const waText = encodeURIComponent(`Hello Shapes Uniform, I would like to inquire about bulk ordering ${cat.title} (${cat.tag || ''}) for our organization.`);
+    const waText = encodeURIComponent(`Hello Shapes Uniform, I would like to get a quote for ${item.title} (${item.tag || 'Custom Uniform'}).`);
     waBtn.href = `https://wa.me/919833392756?text=${waText}`;
   }
 
@@ -380,7 +483,6 @@ window.openProductModal = function(catId) {
   document.body.style.overflow = 'hidden';
 };
 
-// Close Garment Details Modal
 window.closeProductModal = function() {
   const overlay = document.getElementById('product-modal-overlay');
   if (overlay) overlay.classList.remove('active');
@@ -403,83 +505,13 @@ function setupModalListeners() {
   });
 }
 
-// Helper to scroll and request fabric swatch
-window.requestSwatchInquiry = function() {
-  const contact = document.getElementById('contact');
-  if (contact) {
-    contact.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-      const chk = document.getElementById('form-swatch-requested');
-      if (chk) chk.checked = true;
-      const msg = document.getElementById('form-message');
-      if (msg) {
-        msg.focus();
-        msg.placeholder = 'Please mention your delivery address and specific fabrics/shades you would like to inspect...';
-      }
-    }, 500);
-  }
-};
-
-// Render trusted brands logo strip & infinite marquee ticker
-function renderBrandsStrip(filter = 'all') {
-  const container = document.getElementById('brands-logo-strip');
-  const marqueeTrack = document.getElementById('brands-marquee-track');
-  
-  if (!siteData.brands || siteData.brands.length === 0) return;
-
-  // Filter Grid Cards
-  const filteredBrands = filter === 'all'
-    ? siteData.brands
-    : siteData.brands.filter(b => b.category === filter);
-
-  if (container) {
-    container.innerHTML = filteredBrands.map(brand => `
-      <div class="brand-logo-card">
-        <div class="brand-logo-img-wrapper">
-          <img src="${brand.logo}" alt="${brand.name}" class="brand-logo-img" title="${brand.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
-        </div>
-        <span class="brand-card-name">${brand.name}</span>
-        ${brand.tag ? `<span class="brand-card-tag">${brand.tag}</span>` : ''}
-      </div>
-    `).join('');
-  }
-
-  // Marquee Ticker (uses all brands for maximum variety, duplicated 3x)
-  if (marqueeTrack && marqueeTrack.children.length === 0) {
-    const itemsHtml = siteData.brands.map(brand => `
-      <div class="marquee-item">
-        <img src="${brand.logo}" alt="${brand.name}" class="marquee-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
-        <span>${brand.name}</span>
-      </div>
-    `).join('');
-    marqueeTrack.innerHTML = itemsHtml + itemsHtml + itemsHtml;
-  }
-}
-
-// Brand Category Filter Pills Listener
-function setupBrandFilters() {
-  const filterBar = document.getElementById('brands-filter-bar');
-  if (!filterBar) return;
-
-  filterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('.b-pill');
-    if (!btn) return;
-
-    filterBar.querySelectorAll('.b-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    currentBrandFilter = btn.getAttribute('data-bfilter') || 'all';
-    renderBrandsStrip(currentBrandFilter);
-  });
-}
-
-// Setup B2B Turnaround Estimator
+// ==========================================================
+// ORDER PLANNING TOOLS (NO TECHNICAL JARGON)
+// ==========================================================
 function setupEstimator() {
-  const catSelect = document.getElementById('est-category');
   const slider = document.getElementById('est-qty-slider');
   const qtyDisplay = document.getElementById('est-qty-val');
-  const summaryCat = document.getElementById('summary-category');
-  const summaryQty = document.getElementById('summary-qty');
+  const catSelect = document.getElementById('est-category');
   const summaryTimeline = document.getElementById('summary-timeline');
   const waBtn = document.getElementById('est-send-wa-btn');
 
@@ -490,23 +522,21 @@ function setupEstimator() {
     const cat = catSelect.value;
     
     qtyDisplay.innerText = `${qty.toLocaleString()} Units`;
-    summaryCat.innerText = cat;
-    summaryQty.innerText = `${qty.toLocaleString()} Pieces`;
 
-    let timeline = '12 - 15 Days';
+    let timeline = '12 - 16 Days';
     if (qty <= 300) timeline = '10 - 14 Days';
     else if (qty <= 1000) timeline = '14 - 18 Days';
     else if (qty <= 2500) timeline = '18 - 24 Days';
-    else timeline = '25 - 32 Days';
+    else timeline = '25 - 30 Days';
 
-    summaryTimeline.innerText = timeline;
+    if (summaryTimeline) summaryTimeline.innerText = timeline;
 
     if (waBtn) {
       const emb = document.getElementById('est-opt-embroidery')?.checked ? 'Yes' : 'No';
       const dye = document.getElementById('est-opt-custom-dye')?.checked ? 'Yes' : 'No';
       const pkg = document.getElementById('est-opt-packaging')?.checked ? 'Yes' : 'No';
 
-      const waMsg = `Hello Shapes Uniform, I created an estimate on your website:%0A- Category: ${encodeURIComponent(cat)}%0A- Volume: ${qty} Pieces%0A- Embroidery: ${emb}%0A- Custom Color Dye: ${dye}%0A- Poly-packing: ${pkg}%0APlease provide factory pricing.`;
+      const waMsg = `Hello Shapes Uniform, I used your Order Timeline Calculator:%0A- Uniform Type: ${encodeURIComponent(cat)}%0A- Volume: ${qty} Pieces%0A- Logo Embroidery: ${emb}%0A- Custom Dye: ${dye}%0A- Poly-packing: ${pkg}%0APlease share wholesale quotation.`;
       waBtn.onclick = () => {
         window.open(`https://wa.me/919833392756?text=${waMsg}`, '_blank');
       };
@@ -522,17 +552,24 @@ function setupEstimator() {
   updateEstimate();
 }
 
-// Helper to transfer estimator data into formal quote form
 window.applyEstimatorToForm = function() {
   const cat = document.getElementById('est-category')?.value;
   const qty = parseInt(document.getElementById('est-qty-slider')?.value || '500', 10);
-  
+
   const formCat = document.getElementById('inquiry-category');
-  if (formCat && cat) formCat.value = cat;
+  if (formCat && cat) {
+    for (let i = 0; i < formCat.options.length; i++) {
+      if (formCat.options[i].text.includes(cat) || cat.includes(formCat.options[i].text)) {
+        formCat.selectedIndex = i;
+        break;
+      }
+    }
+  }
 
   const formVol = document.getElementById('form-volume');
   if (formVol) {
-    if (qty <= 300) formVol.value = '100-300';
+    if (qty <= 100) formVol.value = '50-100';
+    else if (qty <= 300) formVol.value = '100-300';
     else if (qty <= 500) formVol.value = '300-500';
     else if (qty <= 1000) formVol.value = '500-1000';
     else formVol.value = '1000+';
@@ -540,21 +577,17 @@ window.applyEstimatorToForm = function() {
 
   const msg = document.getElementById('form-message');
   if (msg) {
-    msg.value = `Estimated volume: ${qty} units of ${cat}. Pre-configured via B2B turnaround tool.`;
+    msg.value = `Estimated order: ${qty} units of ${cat}. Calculated via website timeline tool.`;
   }
 
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-      msg?.focus();
-    }, 500);
+    setTimeout(() => msg?.focus(), 450);
   }
 };
 
-// ==========================================================
-// INTERACTIVE B2B SIZE MATRIX FUNCTIONS
-// ==========================================================
+// Bulk Size Breakdown Guide
 window.stepSize = function(inputId, delta) {
   const input = document.getElementById(inputId);
   if (!input) return;
@@ -575,7 +608,6 @@ window.calculateMatrixTotal = function() {
   const totalEl = document.getElementById('matrix-total-units');
   if (totalEl) totalEl.innerText = `${total.toLocaleString()} Pcs`;
 
-  // Update WhatsApp CTA button
   const waBtn = document.getElementById('matrix-send-wa-btn');
   if (waBtn) {
     const s = document.getElementById('size-s')?.value || '0';
@@ -585,7 +617,7 @@ window.calculateMatrixTotal = function() {
     const xxl = document.getElementById('size-xxl')?.value || '0';
     const xxxl = document.getElementById('size-3xl')?.value || '0';
 
-    const msg = `Hello Shapes Uniform, I configured a custom Size Matrix for bulk ordering:%0A- S (38): ${s} pcs%0A- M (40): ${m} pcs%0A- L (42): ${l} pcs%0A- XL (44): ${xl} pcs%0A- XXL (46): ${xxl} pcs%0A- 3XL (48): ${xxxl} pcs%0A*Total Order: ${total} Pcs*%0APlease provide factory wholesale pricing and fabric options.`;
+    const msg = `Hello Shapes Uniform, I selected my size breakdown for uniforms:%0A- S: ${s} pcs%0A- M: ${m} pcs%0A- L: ${l} pcs%0A- XL: ${xl} pcs%0A- XXL: ${xxl} pcs%0A- 3XL: ${xxxl} pcs%0A*Total: ${total} Pcs*%0APlease share wholesale pricing.`;
     waBtn.onclick = () => {
       window.open(`https://wa.me/919833392756?text=${msg}`, '_blank');
     };
@@ -603,12 +635,13 @@ window.applyMatrixToForm = function() {
 
   const formMsg = document.getElementById('form-message');
   if (formMsg) {
-    formMsg.value = `Custom Size Matrix Breakdown (Total: ${total} pcs):\n- S (38): ${s} pcs\n- M (40): ${m} pcs\n- L (42): ${l} pcs\n- XL (44): ${xl} pcs\n- XXL (46): ${xxl} pcs\n- 3XL (48): ${xxxl} pcs`;
+    formMsg.value = `Size Breakdown (Total: ${total} pcs):\n- S: ${s} pcs\n- M: ${m} pcs\n- L: ${l} pcs\n- XL: ${xl} pcs\n- XXL: ${xxl} pcs\n- 3XL: ${xxxl} pcs`;
   }
 
   const formVol = document.getElementById('form-volume');
   if (formVol) {
-    if (total <= 300) formVol.value = '100-300';
+    if (total <= 100) formVol.value = '50-100';
+    else if (total <= 300) formVol.value = '100-300';
     else if (total <= 500) formVol.value = '300-500';
     else if (total <= 1000) formVol.value = '500-1000';
     else formVol.value = '1000+';
@@ -617,9 +650,7 @@ window.applyMatrixToForm = function() {
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-      formMsg?.focus();
-    }, 500);
+    setTimeout(() => formMsg?.focus(), 450);
   }
 };
 
@@ -627,15 +658,65 @@ function setupSizeMatrix() {
   const sizes = ['size-s', 'size-m', 'size-l', 'size-xl', 'size-xxl', 'size-3xl'];
   sizes.forEach(id => {
     const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', calculateMatrixTotal);
-    }
+    if (el) el.addEventListener('input', calculateMatrixTotal);
   });
   calculateMatrixTotal();
 }
 
 // ==========================================================
-// FAQ ACCORDION INTERACTION
+// BRANDS LOGOS & MARQUEE
+// ==========================================================
+function renderBrandsStrip(filter = 'all') {
+  const container = document.getElementById('brands-logo-strip');
+  const marqueeTrack = document.getElementById('brands-marquee-track');
+  
+  if (!siteData.brands || siteData.brands.length === 0) return;
+
+  const filtered = filter === 'all'
+    ? siteData.brands
+    : siteData.brands.filter(b => b.category === filter);
+
+  if (container) {
+    container.innerHTML = filtered.map(brand => `
+      <div class="brand-logo-card">
+        <div class="brand-logo-img-wrapper">
+          <img src="${brand.logo}" alt="${brand.name}" class="brand-logo-img" title="${brand.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
+        </div>
+        <span class="brand-card-name">${brand.name}</span>
+        ${brand.tag ? `<span class="brand-card-tag">${brand.tag}</span>` : ''}
+      </div>
+    `).join('');
+  }
+
+  if (marqueeTrack && marqueeTrack.children.length === 0) {
+    const items = siteData.brands.map(brand => `
+      <div class="marquee-item">
+        <img src="${brand.logo}" alt="${brand.name}" class="marquee-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80'">
+        <span>${brand.name}</span>
+      </div>
+    `).join('');
+    marqueeTrack.innerHTML = items + items + items;
+  }
+}
+
+function setupBrandFilters() {
+  const filterBar = document.getElementById('brands-filter-bar');
+  if (!filterBar) return;
+
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.b-pill');
+    if (!btn) return;
+
+    filterBar.querySelectorAll('.b-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.getAttribute('data-bfilter') || 'all';
+    renderBrandsStrip(cat);
+  });
+}
+
+// ==========================================================
+// FAQ ACCORDION
 // ==========================================================
 function setupFaqAccordion() {
   const container = document.getElementById('faq-accordion-container');
@@ -650,7 +731,7 @@ function setupFaqAccordion() {
 
     const isOpen = item.classList.contains('active');
     
-    // Close other items
+    // Close others
     container.querySelectorAll('.faq-item').forEach(el => {
       el.classList.remove('active');
       const q = el.querySelector('.faq-question');
@@ -664,36 +745,64 @@ function setupFaqAccordion() {
   });
 }
 
-// Hamburger drawer flyout triggers
+// ==========================================================
+// NAVIGATION LISTENERS (MOBILE DRAWER & STICKY HEADER)
+// ==========================================================
 function setupNavigationListeners() {
   const toggleBtn = document.getElementById('mobile-toggle-btn');
   const drawer = document.getElementById('mobile-menu-drawer');
+  const closeBtn = document.getElementById('drawer-close-btn');
   
+  function closeDrawer() {
+    if (drawer) {
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+      if (toggleBtn) toggleBtn.classList.remove('active');
+    }
+  }
+
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = drawer.classList.toggle('open');
       toggleBtn.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+  }
 
-    const mobileLinks = document.querySelectorAll('.mobile-drawer-link, .mobile-nav-link');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (drawer) {
+    const mobileLinks = drawer.querySelectorAll('.mobile-drawer-link, .m-drawer-quote-btn');
     mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        drawer.classList.remove('open');
-        toggleBtn.classList.remove('active');
-      });
+      link.addEventListener('click', closeDrawer);
     });
 
-    document.addEventListener('click', (e) => {
-      if (!drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
-        drawer.classList.remove('open');
-        toggleBtn.classList.remove('active');
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) {
+        closeDrawer();
       }
     });
   }
+
+  // Header scroll drop-shadow effect
+  const header = document.getElementById('main-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
 }
 
-// Lead Inquiry Submit handler
+// ==========================================================
+// QUOTE FORM SUBMISSION
+// ==========================================================
 function setupFormSubmitListener() {
   const form = document.getElementById('b2b-quote-form');
   if (!form) return;
@@ -712,10 +821,8 @@ function setupFormSubmitListener() {
       phone: document.getElementById('form-phone').value,
       category: document.getElementById('inquiry-category').value,
       quantity: document.getElementById('form-volume').value,
-      swatchRequested: document.getElementById('form-swatch-requested')?.checked || false,
       message: document.getElementById('form-message').value,
-      date: new Date().toISOString(),
-      status: 'new'
+      date: new Date().toISOString()
     };
 
     if (submitBtn) {
@@ -725,17 +832,8 @@ function setupFormSubmitListener() {
     }
 
     setTimeout(() => {
-      siteData.inquiries = [inquiry, ...siteData.inquiries];
+      siteData.inquiries = [inquiry, ...(siteData.inquiries || [])];
       saveConfiguration();
-
-      if (siteData.settings.webhookUrl) {
-        fetch(siteData.settings.webhookUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(inquiry)
-        }).catch(err => console.error('Webhook post error:', err));
-      }
 
       if (submitBtn) {
         submitBtn.removeAttribute('disabled');
@@ -750,66 +848,20 @@ function setupFormSubmitListener() {
         successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(() => {
           successBanner.style.display = 'none';
-        }, 8000);
+        }, 10000);
       }
-    }, 800);
+    }, 700);
   });
 }
 
-// Reliable Scroll-reveal animation system
-function setupScrollReveal() {
-  const reveals = document.querySelectorAll('.reveal');
-  if (!reveals.length) return;
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -20px 0px'
-    });
-
-    reveals.forEach(el => observer.observe(el));
-    
-    // Automatically reveal anything near or in top viewport
-    setTimeout(() => {
-      reveals.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight + 100) {
-          el.classList.add('revealed');
-        }
-      });
-    }, 200);
-  } else {
-    reveals.forEach(el => el.classList.add('revealed'));
-  }
-}
-
-// Header background change on scroll
-function setupHeaderScrollEffect() {
-  const header = document.getElementById('main-header');
-  if (!header) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }, { passive: true });
-}
-
-// Bootstrapping site setup
+// ==========================================================
+// INITIALIZATION
+// ==========================================================
 function init() {
   loadConfiguration();
   renderSiteDetails();
-  renderCategoriesGrid('all');
-  setupCategoryFilters();
+  renderFeaturedProducts('all');
+  setupCatalogControls();
   renderBrandsStrip('all');
   setupBrandFilters();
   setupEstimator();
@@ -818,10 +870,6 @@ function init() {
   setupModalListeners();
   setupNavigationListeners();
   setupFormSubmitListener();
-  setupScrollReveal();
-  setupHeaderScrollEffect();
-  // Ensure all cards and sections are immediately visible
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
 }
 
 document.addEventListener('DOMContentLoaded', init);
