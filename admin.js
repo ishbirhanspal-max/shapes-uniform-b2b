@@ -7,7 +7,7 @@ const defaultSiteData = {
     heroDescription: 'We design and manufacture high-grade custom uniforms with durable fabrics, computerized logo embroidery, precision stitching, and guaranteed on-time delivery across India.',
     phone: '9833392756',
     email: 'shapesuniform@gmail.com',
-    address: '504, Shubh Apartments, Aziz Baug, Mahul Road, Chembur, Mumbai - 400074',
+    address: 'SHAPES UNIFORM, Vaity House, Kelkar Wadi, Nagesh Patil Wadi, Near Amar Cinema, Ghatla, Chembur, Mumbai - 400071',
     openingHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sunday: Closed',
     webhookUrl: 'https://script.google.com/macros/s/AKfycbwhgX47ZGkxCWd1nG48cFPaejScGV3OdpT_o5dPS0V42vIM3YFdZ21Ehow9UjDeOK0u/exec',
     capacityStats: [
@@ -18,25 +18,22 @@ const defaultSiteData = {
     ]
   },
   brands: [
-    { name: 'Four Fountains De-stress Spa', logo: 'logos/four_fountains.svg', tag: 'Spa & Wellness' },
-    { name: 'HR Wellness Spa & Salon', logo: 'logos/hr_wellness.svg', tag: 'Spa & Salon' },
-    { name: 'Zen Aura Spa', logo: 'logos/zen_aura.svg', tag: 'Spa & Wellness' },
-    { name: 'Sparogya Luxury Spa', logo: 'https://static.wixstatic.com/media/99bdf8_594c1340b45e4c169910bea22c4dcf53~mv2.png', tag: 'Spa & Wellness' },
-    { name: 'AIS Wellness Group', logo: 'https://static.wixstatic.com/media/99bdf8_d12286eaefdd44cfafeb0e7a8d3602a7~mv2.jpg', tag: 'Healthcare & Wellness' },
-    { name: 'ALYF', logo: 'logos/alyf.svg', tag: 'Corporate & Real Estate' },
-    { name: 'Mobikon', logo: 'logos/mobikon.svg', tag: 'Technology & Corporate' },
-    { name: 'World Dance Company', logo: 'logos/world_dance.svg', tag: 'Costumes & Performing Arts' },
-    { name: 'InVideo - Play Your Ideas', logo: 'logos/invideo.svg', tag: 'Media & Technology' },
-    { name: 'VIBGYOR High School', logo: 'logos/vibgyor.svg', tag: 'School Uniforms' },
-    { name: 'EuroKids Preschool', logo: 'logos/eurokids.svg', tag: 'School Uniforms' },
-    { name: 'Say Cheez Salon', logo: 'logos/say_cheez.svg', tag: 'Salon & Grooming' },
-    { name: 'Tip Top Unisex Salon', logo: 'logos/tip_top.svg', tag: 'Salon & Grooming' },
-    { name: 'St. Gregorios High School', logo: 'logos/st_gregorios.svg', tag: 'School Uniforms' },
-    { name: 'Sudha - Pure By Nature', logo: 'logos/sudha.svg', tag: 'Retail & Wellness' },
-    { name: 'Bloom Hair Transplant', logo: 'logos/bloom_hair.svg', tag: 'Medical & Clinical' },
-    { name: 'Trilegal Legal Firm', logo: 'https://static.wixstatic.com/media/99bdf8_016019b5f5214f979e21953d9afc32d8~mv2.webp/v1/fill/w_420,h_140,al_c,lg_1,q_80,enc_avif,quality_auto/cropped-Trilegal-Logo.webp', tag: 'Legal & Corporate' },
-    { name: 'Gandhar Oil Refinery', logo: 'https://static.wixstatic.com/media/99bdf8_25d4da38e43c4cee84b463fdc0cfa463~mv2.png/v1/fill/w_806,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/gandhar%20logo.png', tag: 'Industrial Energy' },
-    { name: 'Chembur Gymkhana Club', logo: 'https://static.wixstatic.com/media/99bdf8_36c010a3394144d19dc460ef1dbbb796~mv2.jpg/v1/fill/w_352,h_408,al_c,q_80,enc_avif,quality_auto/chembur%20gymkhana.jpg', tag: 'Hospitality & Leisure' }
+    { name: 'International K-12 Academies', icon: '🏫', tag: 'School & Sports Uniforms' },
+    { name: 'Preschool & Montessori Centers', icon: '🎒', tag: 'Pre-Primary Activity Kits' },
+    { name: 'Colleges & Higher Institutions', icon: '🎓', tag: 'Academic Suiting & Blazers' },
+    { name: 'Corporate & Legal Enterprises', icon: '🏢', tag: 'Executive Shirts & Trousers' },
+    { name: 'Industrial Plants & Energy Facilities', icon: '🏭', tag: 'Safety Coveralls & Boiler Suits' },
+    { name: 'Hospitality Clubs & Gymkhanas', icon: '⛳', tag: 'Staff Polos & Service Kits' },
+    { name: 'Luxury Spas & Wellness Resorts', icon: '✨', tag: 'Spa Tunics & Aprons' },
+    { name: 'Multi-Specialty Hospital Networks', icon: '🏥', tag: 'Medical Scrubs & Lab Coats' },
+    { name: 'Clinical Labs & Diagnostics', icon: '🔬', tag: 'Doctor Coats & Nursing Kits' },
+    { name: 'Hotels & Luxury Resort Chains', icon: '🏨', tag: 'Front Desk & Bellhop Suiting' },
+    { name: 'Culinary Chains & Fine Dining', icon: '👨‍🍳', tag: 'Chef Coats & Aprons' },
+    { name: 'Security & Facility Management', icon: '🛡️', tag: 'Tactical Guard Uniforms' },
+    { name: 'IT Hubs & Tech Corporate Parks', icon: '💻', tag: 'Corporate Polos & Shirts' },
+    { name: 'Performing Arts & Dance Academies', icon: '🎭', tag: 'Annual Day Costumes' },
+    { name: 'Sports Academies & Athletic Clubs', icon: '⚽', tag: 'PE Kits & Tracksuits' },
+    { name: 'Aviation & Logistics Services', icon: '✈️', tag: 'Crew Uniforms & Waistcoats' }
   ],
   categories: [
     {
@@ -110,12 +107,12 @@ const defaultSiteData = {
     {
       id: '1',
       name: 'Rajesh Kumar',
-      email: 'r.kumar@trilegal.com',
-      company: 'Trilegal Mumbai',
+      email: 'procurement@corporate-enterprise.com',
+      company: 'Corporate Enterprises Mumbai',
       phone: '9820012345',
       quantity: 350,
       category: 'Corporate Wear',
-      message: 'Looking for premium custom embroidered corporate blazers and shirts for our associate lawyers. Please share fabric options.',
+      message: 'Looking for premium custom embroidered corporate blazers and shirts for our corporate staff. Please share fabric options.',
       date: '2026-07-09T14:32:00.000Z',
       status: 'new'
     }
@@ -132,8 +129,9 @@ function loadSiteData() {
     try {
       siteData = JSON.parse(saved);
       siteData.brands = defaultSiteData.brands;
-      if (!siteData.settings || !siteData.settings.webhookUrl) {
-        siteData.settings = siteData.settings || {};
+      if (!siteData.settings) siteData.settings = {};
+      siteData.settings.address = defaultSiteData.settings.address;
+      if (!siteData.settings.webhookUrl) {
         siteData.settings.webhookUrl = defaultSiteData.settings.webhookUrl;
       }
       if (!siteData.categories || siteData.categories.length < defaultSiteData.categories.length) {
