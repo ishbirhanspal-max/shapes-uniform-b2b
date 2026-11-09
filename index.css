@@ -1,9 +1,9 @@
 /* ==========================================================
    SHAPES UNIFORM - OFFICIAL DESIGN SYSTEM & STYLESHEET
    Brand Colors:
-   Primary (Brand): Pure Red #FF0000
-   Accent / CTA: Pure Red #FF0000
-   Button Hover: Dark Red #CC0000
+   Primary (Brand): Deep Red #C0392B
+   Accent / CTA Buttons: Bright Red #E74C3C
+   Button Hover: Dark Red #96281B
    Background: Pure White #FFFFFF
    Section Alt BG: Off-White / Light Grey #F8F8F8
    Text (Body): Near Black #1A1A1A (Strictly NO #000000)
@@ -15,11 +15,11 @@
 
 :root {
   /* Official Brand Palette */
-  --primary-color: #FF0000;        /* Pure Red (Brand Primary) */
-  --primary-dark: #CC0000;         /* Dark Red (Button Hover) */
-  --primary-light: #FF4D4D;        /* Light Red Tint */
-  --accent-color: #FF0000;         /* Pure Red (CTA Buttons) */
-  --accent-hover: #CC0000;         /* Button Hover */
+  --primary-color: #C0392B;        /* Deep Red (Brand Primary) */
+  --primary-dark: #96281B;         /* Dark Red (Button Hover) */
+  --primary-light: #E74C3C;        /* Bright Red Accent */
+  --accent-color: #E74C3C;         /* Bright Red (CTA Buttons) */
+  --accent-hover: #96281B;         /* Button Hover */
   
   --bg-white: #FFFFFF;             /* Pure White */
   --bg-alt: #F8F8F8;               /* Off-White / Light Grey */
@@ -47,7 +47,7 @@
   --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 8px 25px rgba(255, 0, 0, 0.15);
+  --shadow-hover: 0 8px 25px rgba(192, 57, 43, 0.15);
   
   /* Typography */
   --font-heading: 'Poppins', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -202,7 +202,7 @@ button, input, select, textarea {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.35);
+  box-shadow: 0 4px 15px rgba(192, 57, 43, 0.35);
 }
 
 .btn-outline {
@@ -297,8 +297,7 @@ button, input, select, textarea {
 }
 
 .brand-dot {
-  font-size: 14px;
-  line-height: 1;
+  display: none !important;
 }
 
 .brand-main-title {
@@ -438,7 +437,7 @@ button, input, select, textarea {
 .header-quote-btn:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.35);
+  box-shadow: 0 4px 15px rgba(192, 57, 43, 0.35);
 }
 
 /* Mobile Header Controls */
@@ -599,7 +598,7 @@ button, input, select, textarea {
 }
 
 .mobile-drawer-link.highlight-link {
-  background-color: rgba(255, 0, 0, 0.08);
+  background-color: rgba(192, 57, 43, 0.08);
   color: var(--primary-color);
   font-weight: 600;
 }
@@ -880,7 +879,7 @@ button, input, select, textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 0, 0, 0.85);
+  background: rgba(192, 57, 43, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1043,7 +1042,7 @@ button, input, select, textarea {
 
 .catalog-search-box:focus-within {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
 }
 
 .search-icon {
@@ -1160,7 +1159,7 @@ button, input, select, textarea {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(255, 0, 0, 0.08);
+  background: rgba(192, 57, 43, 0.08);
   color: var(--primary-color);
   font-family: var(--font-heading);
   font-size: 11px;
@@ -1406,8 +1405,8 @@ button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   padding: 4px 12px;
-  background: rgba(255, 0, 0, 0.08);
-  border: 1px solid rgba(255, 0, 0, 0.25);
+  background: rgba(192, 57, 43, 0.08);
+  border: 1px solid rgba(192, 57, 43, 0.25);
   border-radius: 999px;
   font-family: var(--font-heading);
   font-size: 13px;
@@ -1440,7 +1439,7 @@ button, input, select, textarea {
 }
 
 .size-input-row:hover {
-  border-color: rgba(255, 0, 0, 0.3);
+  border-color: rgba(192, 57, 43, 0.3);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -1529,8 +1528,8 @@ button, input, select, textarea {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(255, 0, 0, 0.08);
-  border: 1.5px solid rgba(255, 0, 0, 0.2);
+  background: rgba(192, 57, 43, 0.08);
+  border: 1.5px solid rgba(192, 57, 43, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1696,7 +1695,7 @@ button, input, select, textarea {
 .marquee-item:hover {
   border-color: var(--primary-color);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.12);
+  box-shadow: 0 8px 25px rgba(192, 57, 43, 0.12);
 }
 
 .marquee-img {
@@ -1731,7 +1730,7 @@ button, input, select, textarea {
 }
 
 .marquee-item:hover .marquee-icon-box {
-  background: rgba(255, 0, 0, 0.08);
+  background: rgba(192, 57, 43, 0.08);
   border-color: var(--primary-color);
   transform: scale(1.08);
 }
@@ -1760,7 +1759,7 @@ button, input, select, textarea {
 
 /* ==========================================================
    SECTION 10: RED CTA BANNER
-   Full-width #FF0000 Pure Red band before footer
+   Full-width #C0392B Deep Red band before footer
    ========================================================== */
 .cta-banner-section {
   background-color: var(--primary-color);
@@ -1936,7 +1935,7 @@ button, input, select, textarea {
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
 }
 
 .form-submit-btn {
@@ -1996,7 +1995,7 @@ button, input, select, textarea {
 }
 
 .bg-red-light {
-  background: rgba(255, 0, 0, 0.1);
+  background: rgba(192, 57, 43, 0.1);
   color: var(--primary-color);
 }
 
@@ -2363,8 +2362,8 @@ button, input, select, textarea {
 }
 
 .modal-moq-badge {
-  background: rgba(255, 0, 0, 0.08);
-  border: 1px solid rgba(255, 0, 0, 0.2);
+  background: rgba(192, 57, 43, 0.08);
+  border: 1px solid rgba(192, 57, 43, 0.2);
   color: var(--primary-color);
   font-family: var(--font-heading);
   font-size: 13px;
@@ -2668,7 +2667,7 @@ button, input, select, textarea {
   }
 
   .brand-dot {
-    font-size: 11px;
+    display: none !important;
   }
 
   .brand-main-title {

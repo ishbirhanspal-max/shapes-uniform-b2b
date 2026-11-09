@@ -116,7 +116,7 @@ const defaultSiteData = {
       moq: '100 Sets',
       fabrics: 'Wrinkle-Free Breathable Cotton Blend',
       description: 'Crisp button-down corporate office shirts paired with flat-front formal trousers in customized Pantone corporate shades.',
-      image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-3',
@@ -126,7 +126,7 @@ const defaultSiteData = {
       moq: '100 Sets',
       fabrics: 'Colorfast Poly-Cotton Twill Weave',
       description: 'Standard institutional school sets comprising collared shirt, pleated skirt or trouser, custom woven tie, and socks.',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-4',
@@ -136,7 +136,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Heavyweight Serge Wool / Poly-Viscose',
       description: 'Formal school academy blazer with brass or engraved buttons and high-definition Tajima computerized school crest embroidery.',
-      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-5',
@@ -146,7 +146,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Fluid-Resistant 4-Way Stretch Poplin',
       description: 'V-neck scrub top with multi-pocket cargo pants. Breathable, quick-dry, and resistant to hospital bleaching protocols.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-6',
@@ -156,7 +156,7 @@ const defaultSiteData = {
       moq: '50 Pieces',
       fabrics: 'Heavy 100% Mercerized Cotton Twill',
       description: 'Full-length knee doctor lab coat with reinforced side vents, iPad/tablet pocket, and doctor name embroidery.',
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-7',
@@ -176,7 +176,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Lightweight Poly-Viscose Tunic Fabric',
       description: 'Comfortable Mandarin collar tunic top with flexible drawstring pants for wellness spas, salons, and housekeeping personnel.',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-9',
@@ -196,7 +196,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Reinforced Ripstop Weave / Heavy Poly-Wool',
       description: 'Crisp epauletted security shirt, lanyard, whistle cord, tactical utility trousers, and customized insignia patches.',
-      image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-11',
@@ -206,7 +206,7 @@ const defaultSiteData = {
       moq: '100 Units',
       fabrics: '220 GSM Honeycomb Pique Cotton',
       description: 'Bio-polished pique cotton polo shirt with ribbed collar and cuffs, customized with high-density logo embroidery.',
-      image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-12',
@@ -216,7 +216,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Vibrant Stage Satin, Lycra & Velvet',
       description: 'Complete theatrical production costumes designed according to choreography themes, historical periods, or folk dance forms.',
-      image: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80'
     }
   ],
   // 19 Vibrant Client Brand Logos (Full Color Vectors)
