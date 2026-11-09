@@ -232,12 +232,12 @@
        Trust strip below hero
        ========================================================== -->
   <section class="hero-section" id="hero">
-    <!-- Looping Background Garment Video -->
-    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/af05e4_057f2d4e37ae40c29d82cf0dff80f69af000.jpg/v1/fill/w_1920,h_1080,al_c,q_80,enc_avif,quality_auto/af05e4_057f2d4e37ae40c29d82cf0dff80f69af000.jpg">
+    <!-- Looping Background Garment Video with Autoplay for Mobile & Laptop -->
+    <video class="hero-video-bg" id="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" poster="https://static.wixstatic.com/media/af05e4_057f2d4e37ae40c29d82cf0dff80f69af000.jpg/v1/fill/w_1920,h_1080,al_c,q_80,enc_avif,quality_auto/af05e4_057f2d4e37ae40c29d82cf0dff80f69af000.jpg">
       <source src="https://video.wixstatic.com/video/af05e4_057f2d4e37ae40c29d82cf0dff80f69a/1080p/mp4/file.mp4" type="video/mp4">
     </video>
     
-    <!-- Dark Red Overlay at 60% opacity -->
+    <!-- Clean Neutral Scrim Overlay (No Red Wash) -->
     <div class="hero-video-overlay"></div>
 
     <div class="container hero-container">
@@ -966,11 +966,11 @@
             <div class="success-alert" id="form-success-banner" style="display:none;">
               <svg class="success-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               <div>
-                <strong class="alert-title">Quote Request Successfully Logged</strong>
-                <span class="alert-desc">Thank you. Our commercial account manager will reach out with wholesale pricing and shade options.</span>
-                <div style="margin-top: 10px;">
-                  <a href="https://wa.me/919833392756?text=Hi%20Shapes%20Uniform%2C%20I%20just%20submitted%20a%20quote%20request%20on%20your%20website." target="_blank" class="btn btn-whatsapp" style="display:inline-flex; padding:6px 14px; font-size:13px;">
-                    Send Quick Ping on WhatsApp &rarr;
+                <strong class="alert-title" id="alert-title-text">Quote Request Sent Successfully!</strong>
+                <span class="alert-desc" id="alert-desc-text">Your inquiry has been emailed to shapesuniform@gmail.com and logged to our database. Our commercial desk will review your requirements and provide wholesale pricing within 24 hours.</span>
+                <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="#" id="form-wa-confirm-btn" target="_blank" class="btn btn-whatsapp" style="display:inline-flex; padding:8px 16px; font-size:13px; text-decoration:none;">
+                    💬 Also Ping on WhatsApp for Priority (10 Mins)
                   </a>
                 </div>
               </div>

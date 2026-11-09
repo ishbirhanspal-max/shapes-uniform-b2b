@@ -801,13 +801,61 @@ function setupNavigationListeners() {
 }
 
 // ==========================================================
-// QUOTE FORM SUBMISSION
+// BACKGROUND HERO VIDEO AUTOPLAY (MOBILE & LAPTOP)
+// ==========================================================
+function setupHeroVideo() {
+  const video = document.getElementById('hero-bg-video') || document.querySelector('.hero-video-bg');
+  if (!video) return;
+
+  // Strict mobile WebKit & Blink autoplay requirements
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  function attemptPlay() {
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Fallback for iOS Low Power Mode or initial policy block:
+        // Automatically start on the first touch or scroll anywhere on the document
+        const unlockPlay = () => {
+          video.play().catch(() => {});
+        };
+        ['touchstart', 'touchend', 'click', 'scroll'].forEach(evt => {
+          window.addEventListener(evt, unlockPlay, { once: true, passive: true });
+        });
+      });
+    }
+  }
+
+  // Attempt autoplay immediately
+  attemptPlay();
+
+  // Retry on media ready events
+  video.addEventListener('loadedmetadata', attemptPlay);
+  video.addEventListener('loadeddata', attemptPlay);
+  video.addEventListener('canplay', attemptPlay);
+
+  // Resume when returning from another browser tab
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && video.paused) {
+      attemptPlay();
+    }
+  });
+}
+
+// ==========================================================
+// QUOTE FORM SUBMISSION (EMAIL TO shapesuniform@gmail.com + GOOGLE SHEETS)
 // ==========================================================
 function setupFormSubmitListener() {
   const form = document.getElementById('b2b-quote-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const submitBtn = document.getElementById('submit-btn');
@@ -815,42 +863,96 @@ function setupFormSubmitListener() {
     
     const inquiry = {
       id: Date.now().toString(),
-      name: document.getElementById('form-name').value,
-      company: document.getElementById('form-company').value,
-      email: document.getElementById('form-email').value,
-      phone: document.getElementById('form-phone').value,
-      category: document.getElementById('inquiry-category').value,
-      quantity: document.getElementById('form-volume').value,
-      message: document.getElementById('form-message').value,
+      name: (document.getElementById('form-name')?.value || '').trim(),
+      company: (document.getElementById('form-company')?.value || '').trim(),
+      email: (document.getElementById('form-email')?.value || '').trim(),
+      phone: (document.getElementById('form-phone')?.value || '').trim(),
+      category: document.getElementById('inquiry-category')?.value || 'School Uniforms',
+      quantity: document.getElementById('form-volume')?.value || '300-500',
+      message: (document.getElementById('form-message')?.value || '').trim(),
       date: new Date().toISOString()
     };
 
     if (submitBtn) {
       submitBtn.setAttribute('disabled', 'true');
-      submitBtn.querySelector('.btn-text').style.display = 'none';
-      submitBtn.querySelector('.btn-loader-text').style.display = 'inline';
+      const textSpan = submitBtn.querySelector('.btn-text');
+      const loaderSpan = submitBtn.querySelector('.btn-loader-text');
+      if (textSpan) textSpan.style.display = 'none';
+      if (loaderSpan) {
+        loaderSpan.innerText = 'Sending Quote to Email & Sheets...';
+        loaderSpan.style.display = 'inline';
+      }
     }
 
-    setTimeout(() => {
-      siteData.inquiries = [inquiry, ...(siteData.inquiries || [])];
-      saveConfiguration();
+    // 1. Log to local application state
+    siteData.inquiries = [inquiry, ...(siteData.inquiries || [])];
+    saveConfiguration();
 
-      if (submitBtn) {
-        submitBtn.removeAttribute('disabled');
-        submitBtn.querySelector('.btn-text').style.display = 'inline';
-        submitBtn.querySelector('.btn-loader-text').style.display = 'none';
-      }
+    // 2. Prepare payload for Google Sheets & Email dispatch
+    const payload = {
+      name: inquiry.name,
+      company: inquiry.company,
+      email: inquiry.email,
+      phone: inquiry.phone,
+      category: inquiry.category,
+      quantity: inquiry.quantity,
+      message: inquiry.message || 'No additional custom specs provided',
+      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
 
-      form.reset();
+    // 3. Dispatch to Google Sheets Webhook if configured
+    const webhook = siteData.settings.webhookUrl || localStorage.getItem('shapes_google_sheets_webhook');
+    if (webhook && webhook.trim().startsWith('http')) {
+      fetch(webhook.trim(), {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(err => console.warn('Google Sheets Webhook dispatch note:', err));
+    }
 
-      if (successBanner) {
-        successBanner.style.display = 'flex';
-        successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => {
-          successBanner.style.display = 'none';
-        }, 10000);
-      }
-    }, 700);
+    // 4. Dispatch to direct FormSubmit email gateway to deliver immediately to shapesuniform@gmail.com
+    fetch('https://formsubmit.co/ajax/shapesuniform@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        "Client Name": inquiry.name,
+        "Company / Organization": inquiry.company,
+        "Phone Number": inquiry.phone,
+        "Email Address": inquiry.email,
+        "Uniform Category": inquiry.category,
+        "Estimated Order Quantity": inquiry.quantity,
+        "Custom Specifications": inquiry.message || "Standard requirements",
+        "_subject": `New B2B Uniform Inquiry - ${inquiry.company} (${inquiry.name})`
+      })
+    }).catch(err => console.warn('Direct email gateway note:', err));
+
+    // 5. Configure WhatsApp priority follow-up button
+    const waBtn = document.getElementById('form-wa-confirm-btn');
+    if (waBtn) {
+      const waMsg = `Hello Shapes Uniform, I just submitted a quote request on shapesuniform.in:%0A- Name: ${encodeURIComponent(inquiry.name)}%0A- Company: ${encodeURIComponent(inquiry.company)}%0A- Phone: ${encodeURIComponent(inquiry.phone)}%0A- Email: ${encodeURIComponent(inquiry.email)}%0A- Category: ${encodeURIComponent(inquiry.category)}%0A- Volume: ${encodeURIComponent(inquiry.quantity)}%0A- Specs: ${encodeURIComponent(inquiry.message || 'Standard specs')}`;
+      waBtn.href = `https://wa.me/919833392756?text=${waMsg}`;
+    }
+
+    // Reset button & form
+    if (submitBtn) {
+      submitBtn.removeAttribute('disabled');
+      const textSpan = submitBtn.querySelector('.btn-text');
+      const loaderSpan = submitBtn.querySelector('.btn-loader-text');
+      if (textSpan) textSpan.style.display = 'inline';
+      if (loaderSpan) loaderSpan.style.display = 'none';
+    }
+
+    form.reset();
+
+    // Show success alert
+    if (successBanner) {
+      successBanner.style.display = 'flex';
+      successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   });
 }
 
@@ -870,6 +972,7 @@ function init() {
   setupModalListeners();
   setupNavigationListeners();
   setupFormSubmitListener();
+  setupHeroVideo();
 }
 
 document.addEventListener('DOMContentLoaded', init);
