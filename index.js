@@ -23,7 +23,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Colorfast Poly-Cotton Twill, Breathable Shirting',
       description: 'Durable, comfortable school uniforms including blazers, shirts, trousers, skirts, pinafores, and sports PE kits tailored for all grade levels.',
-      image: 'https://static.wixstatic.com/media/af05e4_adbbb1be1510499a9b49b99cf8d8b257~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-corporate',
@@ -33,7 +33,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Poly-Viscose Suiting, 100% Cotton, Wrinkle-Free Weaves',
       description: 'Sophisticated executive blazers, tailored formal trousers, corporate suits, and office shirting designed to reflect professionalism.',
-      image: 'https://static.wixstatic.com/media/af05e4_8ae6038793054ab3b4466cbee9e1003d~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-medical',
@@ -43,7 +43,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Fluid-Repellent Antimicrobial 4-Way Stretch Poplin',
       description: 'Ergonomic scrub sets, doctor lab coats, and nursing tunics crafted with breathable, antimicrobial, and fluid-resistant textiles.',
-      image: 'https://static.wixstatic.com/media/af05e4_3f5bebae858040d5928bd618226dce9a~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-hospitality',
@@ -53,7 +53,7 @@ const defaultSiteData = {
       moq: '50 - 100 Sets',
       fabrics: 'Stain-Resistant Easy-Wash Poly-Viscose Tunic Fabric',
       description: 'Front desk suiting, spa & housekeeping tunics, bellhop uniforms, and service vests tailored for premier hospitality environments.',
-      image: 'https://static.wixstatic.com/media/af05e4_5a3512b83547430796f3dc673bbb5d90~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-industrial',
@@ -63,7 +63,7 @@ const defaultSiteData = {
       moq: '50 - 100 Units',
       fabrics: 'Heavy 280-320 GSM Cotton Drill, Fire-Retardant Finish',
       description: 'Heavy-duty high-visibility boiler suits, safety jackets, and tactical security officer uniforms built for rigorous everyday use.',
-      image: 'https://static.wixstatic.com/media/af05e4_f582c609f87f4e79946a4c760286031d~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-chef',
@@ -73,7 +73,7 @@ const defaultSiteData = {
       moq: '50 - 100 Units',
       fabrics: 'Heat-Resistant Cotton-Poly Twill, Air-Vent Mesh',
       description: 'Double-breasted breathable chef coats, protective kitchen aprons, and staff trousers engineered to withstand kitchen heat.',
-      image: 'https://static.wixstatic.com/media/af05e4_ca63ce636e294cc1b211055342cb2b48~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-tshirts',
@@ -83,7 +83,7 @@ const defaultSiteData = {
       moq: '100 Units',
       fabrics: '180-220 GSM Bio-Washed Combed Cotton, Dry-Fit Poly',
       description: 'Custom polo t-shirts, crew necks, sports jerseys, and event t-shirts with detailed embroidery or vibrant full-color printing.',
-      image: 'https://static.wixstatic.com/media/af05e4_066ab6b6223746cfb593d4fe49db51d7~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'cat-costumes',
@@ -93,7 +93,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Stage Satin, Stretch Lycra, Shimmer Velvet & Trims',
       description: 'Vibrant, custom-tailored stage costumes, thematic character outfits, and coordinate accessories designed for school annual day celebrations.',
-      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80'
     }
   ],
   // 12 Featured Catalog Products
@@ -106,7 +106,7 @@ const defaultSiteData = {
       moq: '50 Pieces',
       fabrics: 'Premium Poly-Viscose Suiting',
       description: 'Tailored executive blazer with structured shoulder fit, interior satin lining, and custom corporate crest embroidery.',
-      image: 'https://static.wixstatic.com/media/af05e4_8ae6038793054ab3b4466cbee9e1003d~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-2',
@@ -116,7 +116,7 @@ const defaultSiteData = {
       moq: '100 Sets',
       fabrics: 'Wrinkle-Free Breathable Cotton Blend',
       description: 'Crisp button-down corporate office shirts paired with flat-front formal trousers in customized Pantone corporate shades.',
-      image: 'https://static.wixstatic.com/media/af05e4_355a022ad6c04542ad1ddc44f99fe1d4~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-3',
@@ -126,7 +126,7 @@ const defaultSiteData = {
       moq: '100 Sets',
       fabrics: 'Colorfast Poly-Cotton Twill Weave',
       description: 'Standard institutional school sets comprising collared shirt, pleated skirt or trouser, custom woven tie, and socks.',
-      image: 'https://static.wixstatic.com/media/af05e4_adbbb1be1510499a9b49b99cf8d8b257~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-4',
@@ -136,7 +136,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Heavyweight Serge Wool / Poly-Viscose',
       description: 'Formal school academy blazer with brass or engraved buttons and high-definition Tajima computerized school crest embroidery.',
-      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-5',
@@ -146,7 +146,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Fluid-Resistant 4-Way Stretch Poplin',
       description: 'V-neck scrub top with multi-pocket cargo pants. Breathable, quick-dry, and resistant to hospital bleaching protocols.',
-      image: 'https://static.wixstatic.com/media/af05e4_3f5bebae858040d5928bd618226dce9a~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-6',
@@ -156,7 +156,7 @@ const defaultSiteData = {
       moq: '50 Pieces',
       fabrics: 'Heavy 100% Mercerized Cotton Twill',
       description: 'Full-length knee doctor lab coat with reinforced side vents, iPad/tablet pocket, and doctor name embroidery.',
-      image: 'https://static.wixstatic.com/media/af05e4_b900aab891f04adfa3dd93284dec1bde~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-7',
@@ -166,7 +166,7 @@ const defaultSiteData = {
       moq: '50 Pieces',
       fabrics: 'Heat-Resistant Cotton-Poly Twill',
       description: 'Professional chef jacket with removable stud buttons, back underarm air-vent mesh, and thermometer sleeve pocket.',
-      image: 'https://static.wixstatic.com/media/af05e4_ca63ce636e294cc1b211055342cb2b48~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-8',
@@ -176,7 +176,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Lightweight Poly-Viscose Tunic Fabric',
       description: 'Comfortable Mandarin collar tunic top with flexible drawstring pants for wellness spas, salons, and housekeeping personnel.',
-      image: 'https://static.wixstatic.com/media/af05e4_5a3512b83547430796f3dc673bbb5d90~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-9',
@@ -186,7 +186,7 @@ const defaultSiteData = {
       moq: '50 Units',
       fabrics: '280-320 GSM Heavy Cotton Drill',
       description: 'Rugged one-piece industrial coverall with 3M reflective safety tape, two-way heavy brass zip, and tool pockets.',
-      image: 'https://static.wixstatic.com/media/af05e4_f582c609f87f4e79946a4c760286031d~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-10',
@@ -196,7 +196,7 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Reinforced Ripstop Weave / Heavy Poly-Wool',
       description: 'Crisp epauletted security shirt, lanyard, whistle cord, tactical utility trousers, and customized insignia patches.',
-      image: 'https://static.wixstatic.com/media/af05e4_b900aab891f04adfa3dd93284dec1bde~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-11',
@@ -206,7 +206,7 @@ const defaultSiteData = {
       moq: '100 Units',
       fabrics: '220 GSM Honeycomb Pique Cotton',
       description: 'Bio-polished pique cotton polo shirt with ribbed collar and cuffs, customized with high-density logo embroidery.',
-      image: 'https://static.wixstatic.com/media/af05e4_066ab6b6223746cfb593d4fe49db51d7~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'prod-12',
@@ -216,27 +216,30 @@ const defaultSiteData = {
       moq: '50 Sets',
       fabrics: 'Vibrant Stage Satin, Lycra & Velvet',
       description: 'Complete theatrical production costumes designed according to choreography themes, historical periods, or folk dance forms.',
-      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80'
     }
   ],
-  // Generic Institutional Partner Sectors (Zero Real / Trademarked Names)
+  // 19 Vibrant Client Brand Logos (Full Color Vectors)
   brands: [
-    { name: 'International K-12 Academies', icon: '🏫', tag: 'School & Sports Uniforms' },
-    { name: 'Preschool & Montessori Centers', icon: '🎒', tag: 'Pre-Primary Activity Kits' },
-    { name: 'Colleges & Higher Institutions', icon: '🎓', tag: 'Academic Suiting & Blazers' },
-    { name: 'Corporate & Legal Enterprises', icon: '🏢', tag: 'Executive Shirts & Trousers' },
-    { name: 'Industrial Plants & Energy Facilities', icon: '🏭', tag: 'Safety Coveralls & Boiler Suits' },
-    { name: 'Hospitality Clubs & Gymkhanas', icon: '⛳', tag: 'Staff Polos & Service Kits' },
-    { name: 'Luxury Spas & Wellness Resorts', icon: '✨', tag: 'Spa Tunics & Aprons' },
-    { name: 'Multi-Specialty Hospital Networks', icon: '🏥', tag: 'Medical Scrubs & Lab Coats' },
-    { name: 'Clinical Labs & Diagnostics', icon: '🔬', tag: 'Doctor Coats & Nursing Kits' },
-    { name: 'Hotels & Luxury Resort Chains', icon: '🏨', tag: 'Front Desk & Bellhop Suiting' },
-    { name: 'Culinary Chains & Fine Dining', icon: '👨‍🍳', tag: 'Chef Coats & Aprons' },
-    { name: 'Security & Facility Management', icon: '🛡️', tag: 'Tactical Guard Uniforms' },
-    { name: 'IT Hubs & Tech Corporate Parks', icon: '💻', tag: 'Corporate Polos & Shirts' },
-    { name: 'Performing Arts & Dance Academies', icon: '🎭', tag: 'Annual Day Costumes' },
-    { name: 'Sports Academies & Athletic Clubs', icon: '⚽', tag: 'PE Kits & Tracksuits' },
-    { name: 'Aviation & Logistics Services', icon: '✈️', tag: 'Crew Uniforms & Waistcoats' }
+    { name: 'VIBGYOR High School', logo: 'logos/vibgyor.svg', tag: 'School Uniforms' },
+    { name: 'EuroKids Preschool', logo: 'logos/eurokids.svg', tag: 'School Uniforms' },
+    { name: 'St. Gregorios High School', logo: 'logos/st_gregorios.svg', tag: 'School Uniforms' },
+    { name: 'Trilegal Legal Firm', logo: 'logos/trilegal.svg', tag: 'Legal & Corporate' },
+    { name: 'Gandhar Oil Refinery', logo: 'logos/gandhar.svg', tag: 'Industrial Energy' },
+    { name: 'Chembur Gymkhana Club', logo: 'logos/chembur_gymkhana.svg', tag: 'Hospitality & Leisure' },
+    { name: 'Four Fountains De-stress Spa', logo: 'logos/four_fountains.svg', tag: 'Spa & Wellness' },
+    { name: 'Sparogya Luxury Spa', logo: 'logos/sparogya.svg', tag: 'Spa & Wellness' },
+    { name: 'Zen Aura Luxury Spa', logo: 'logos/zen_aura.svg', tag: 'Spa & Wellness' },
+    { name: 'HR Wellness Spa & Salon', logo: 'logos/hr_wellness.svg', tag: 'Spa & Salon' },
+    { name: 'AIS Wellness Healthcare', logo: 'logos/ais_wellness.svg', tag: 'Healthcare & Clinical' },
+    { name: 'ALYF Real Estate', logo: 'logos/alyf.svg', tag: 'Corporate & Real Estate' },
+    { name: 'Mobikon Technologies', logo: 'logos/mobikon.svg', tag: 'Technology & Corporate' },
+    { name: 'World Dance Company', logo: 'logos/world_dance.svg', tag: 'Costumes & Performing Arts' },
+    { name: 'InVideo Media', logo: 'logos/invideo.svg', tag: 'Media & Technology' },
+    { name: 'Say Cheez Unisex Salon', logo: 'logos/say_cheez.svg', tag: 'Salon & Grooming' },
+    { name: 'Tip Top Unisex Salon', logo: 'logos/tip_top.svg', tag: 'Salon & Grooming' },
+    { name: 'Sudha Pure By Nature', logo: 'logos/sudha.svg', tag: 'Retail & Wellness' },
+    { name: 'Bloom Hair Clinic', logo: 'logos/bloom_hair.svg', tag: 'Medical & Clinical' }
   ],
   inquiries: []
 };
@@ -676,12 +679,8 @@ function renderBrandsStrip() {
   if (!marqueeTrack || !siteData.brands || siteData.brands.length === 0) return;
 
   const items = siteData.brands.map(brand => `
-    <div class="marquee-item" title="${brand.name} - ${brand.tag}">
-      <div class="marquee-icon-box">${brand.icon || '🏢'}</div>
-      <div class="marquee-info">
-        <span class="marquee-name">${brand.name}</span>
-        <span class="marquee-tag">${brand.tag}</span>
-      </div>
+    <div class="marquee-item" title="${brand.name}${brand.tag ? ' - ' + brand.tag : ''}">
+      <img src="${brand.logo}" alt="${brand.name}" class="marquee-img" loading="lazy">
     </div>
   `).join('');
 

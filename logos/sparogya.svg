@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- Sparogya Luxury Spa Lotus & Wellness Leaf in Emerald & Gold -->
+  <g transform="translate(30, 18)">
+    <circle cx="32" cy="32" r="28" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5"/>
+    <path d="M32 16 C22 28, 22 40, 32 46 C42 40, 42 28, 32 16 Z" fill="#ca8a04"/>
+    <path d="M22 28 C16 36, 20 44, 28 46 C24 40, 24 34, 22 28 Z" fill="#0d9488"/>
+    <path d="M42 28 C48 36, 44 44, 36 46 C40 40, 40 34, 42 28 Z" fill="#0d9488"/>
+  </g>
+  <text x="96" y="46" font-family="'Outfit', sans-serif" font-weight="900" font-size="20" fill="#0f766e" letter-spacing="2">SPAROGYA</text>
+  <text x="96" y="66" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#ca8a04" letter-spacing="3">AYURVEDA &amp; LUXURY SPA</text>
+</svg>

@@ -18,89 +18,92 @@ const defaultSiteData = {
     ]
   },
   brands: [
-    { name: 'International K-12 Academies', icon: '🏫', tag: 'School & Sports Uniforms' },
-    { name: 'Preschool & Montessori Centers', icon: '🎒', tag: 'Pre-Primary Activity Kits' },
-    { name: 'Colleges & Higher Institutions', icon: '🎓', tag: 'Academic Suiting & Blazers' },
-    { name: 'Corporate & Legal Enterprises', icon: '🏢', tag: 'Executive Shirts & Trousers' },
-    { name: 'Industrial Plants & Energy Facilities', icon: '🏭', tag: 'Safety Coveralls & Boiler Suits' },
-    { name: 'Hospitality Clubs & Gymkhanas', icon: '⛳', tag: 'Staff Polos & Service Kits' },
-    { name: 'Luxury Spas & Wellness Resorts', icon: '✨', tag: 'Spa Tunics & Aprons' },
-    { name: 'Multi-Specialty Hospital Networks', icon: '🏥', tag: 'Medical Scrubs & Lab Coats' },
-    { name: 'Clinical Labs & Diagnostics', icon: '🔬', tag: 'Doctor Coats & Nursing Kits' },
-    { name: 'Hotels & Luxury Resort Chains', icon: '🏨', tag: 'Front Desk & Bellhop Suiting' },
-    { name: 'Culinary Chains & Fine Dining', icon: '👨‍🍳', tag: 'Chef Coats & Aprons' },
-    { name: 'Security & Facility Management', icon: '🛡️', tag: 'Tactical Guard Uniforms' },
-    { name: 'IT Hubs & Tech Corporate Parks', icon: '💻', tag: 'Corporate Polos & Shirts' },
-    { name: 'Performing Arts & Dance Academies', icon: '🎭', tag: 'Annual Day Costumes' },
-    { name: 'Sports Academies & Athletic Clubs', icon: '⚽', tag: 'PE Kits & Tracksuits' },
-    { name: 'Aviation & Logistics Services', icon: '✈️', tag: 'Crew Uniforms & Waistcoats' }
+    { name: 'VIBGYOR High School', logo: 'logos/vibgyor.svg', tag: 'School Uniforms' },
+    { name: 'EuroKids Preschool', logo: 'logos/eurokids.svg', tag: 'School Uniforms' },
+    { name: 'St. Gregorios High School', logo: 'logos/st_gregorios.svg', tag: 'School Uniforms' },
+    { name: 'Trilegal Legal Firm', logo: 'logos/trilegal.svg', tag: 'Legal & Corporate' },
+    { name: 'Gandhar Oil Refinery', logo: 'logos/gandhar.svg', tag: 'Industrial Energy' },
+    { name: 'Chembur Gymkhana Club', logo: 'logos/chembur_gymkhana.svg', tag: 'Hospitality & Leisure' },
+    { name: 'Four Fountains De-stress Spa', logo: 'logos/four_fountains.svg', tag: 'Spa & Wellness' },
+    { name: 'Sparogya Luxury Spa', logo: 'logos/sparogya.svg', tag: 'Spa & Wellness' },
+    { name: 'Zen Aura Luxury Spa', logo: 'logos/zen_aura.svg', tag: 'Spa & Wellness' },
+    { name: 'HR Wellness Spa & Salon', logo: 'logos/hr_wellness.svg', tag: 'Spa & Salon' },
+    { name: 'AIS Wellness Healthcare', logo: 'logos/ais_wellness.svg', tag: 'Healthcare & Clinical' },
+    { name: 'ALYF Real Estate', logo: 'logos/alyf.svg', tag: 'Corporate & Real Estate' },
+    { name: 'Mobikon Technologies', logo: 'logos/mobikon.svg', tag: 'Technology & Corporate' },
+    { name: 'World Dance Company', logo: 'logos/world_dance.svg', tag: 'Costumes & Performing Arts' },
+    { name: 'InVideo Media', logo: 'logos/invideo.svg', tag: 'Media & Technology' },
+    { name: 'Say Cheez Unisex Salon', logo: 'logos/say_cheez.svg', tag: 'Salon & Grooming' },
+    { name: 'Tip Top Unisex Salon', logo: 'logos/tip_top.svg', tag: 'Salon & Grooming' },
+    { name: 'Sudha Pure By Nature', logo: 'logos/sudha.svg', tag: 'Retail & Wellness' },
+    { name: 'Bloom Hair Clinic', logo: 'logos/bloom_hair.svg', tag: 'Medical & Clinical' }
   ],
   categories: [
     {
       id: 'corporate',
       title: 'Corporate Wear',
       description: 'Sophisticated suits, premium blazers, executive shirts, and formal trousers designed to reflect professionalism and command authority.',
-      image: 'https://static.wixstatic.com/media/af05e4_8ae6038793054ab3b4466cbee9e1003d~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'school',
       title: 'School Uniforms',
       description: 'Durable, comfortable school uniforms including blazers, shirts, trousers, skirts, and PE kits tailored for institutional bulk requirements across all grade levels.',
-      image: 'https://static.wixstatic.com/media/af05e4_adbbb1be1510499a9b49b99cf8d8b257~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'medical',
       title: 'Hospital & Medical Uniforms',
       description: 'Ergonomic scrub sets, lab coats, and support staff uniforms crafted with breathable, antimicrobial, and fluid-resistant textiles.',
-      image: 'https://static.wixstatic.com/media/af05e4_3f5bebae858040d5928bd618226dce9a~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'industrial',
       title: 'Industrial & Safety Wear',
       description: 'Heavy-duty high-visibility coveralls, fire-retardant utility jackets, and reinforced trousers engineered for extreme environments.',
-      image: 'https://static.wixstatic.com/media/af05e4_f582c609f87f4e79946a4c760286031d~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'security',
       title: 'Security & Tactical Uniforms',
       description: 'Durable uniform shirts, utility trousers, badges, and caps configured for private security officers, pilots, and field patrol teams.',
-      image: 'https://static.wixstatic.com/media/af05e4_b900aab891f04adfa3dd93284dec1bde~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'chef',
       title: 'Chef & Hospitality Coats',
       description: 'Double-breasted breathable chef coats, protective aprons, service vests, and kitchen staff trousers built to withstand kitchen heat.',
-      image: 'https://static.wixstatic.com/media/af05e4_ca63ce636e294cc1b211055342cb2b48~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'tshirts',
       title: 'T-Shirts & Event Wear',
       description: 'Custom round-neck, V-neck, and collar t-shirts available in bulk for corporate events, marathons, staff outings, and promotional campaigns with full-color printing.',
-      image: 'https://static.wixstatic.com/media/af05e4_d1298effb2da4126b072285f1614360f~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'polos',
       title: 'Polo Shirts & Promotional Wear',
       description: 'Custom corporate polo shirts, event t-shirts, and casual workplace wear customized with premium direct-to-garment printing or detailed embroidery.',
-      image: 'https://static.wixstatic.com/media/af05e4_066ab6b6223746cfb593d4fe49db51d7~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'housekeeping',
       title: 'Spa & Housekeeping Uniform',
       description: 'Clean-cut, flexible tunic tops and matching trousers tailored for salon, spa, clinical care, and facility maintenance personnel.',
-      image: 'https://static.wixstatic.com/media/af05e4_5a3512b83547430796f3dc673bbb5d90~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'costumes',
       title: 'School Annual Day Costumes',
       description: 'Vibrant, premium custom-tailored stage costumes, thematic character outfits, and coordinate accessories designed for school annual day celebrations and theatre productions.',
-      image: 'https://static.wixstatic.com/media/af05e4_0c00916cecb14c07873782a752ad58be~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80'
     },
     {
       id: 'others',
       title: 'Linens & Accessories',
       description: 'Quality bedsheets, hospital pillowcases, industrial aprons, school ties, belts, socks, and other customizable uniform components.',
-      image: 'https://static.wixstatic.com/media/af05e4_355a022ad6c04542ad1ddc44f99fe1d4~mv2.jpg'
+      image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80'
     }
   ],
   inquiries: [
