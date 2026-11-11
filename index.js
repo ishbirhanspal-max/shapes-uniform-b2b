@@ -201,7 +201,7 @@ const defaultSiteData = {
     {
       id: 'prod-11',
       title: 'Custom Bio-Washed Corporate Polo T-Shirt',
-      category: 'corporate',
+      category: 'events',
       tag: 'T-Shirts & Custom',
       moq: '100 Units',
       fabrics: '220 GSM Honeycomb Pique Cotton',
@@ -211,7 +211,7 @@ const defaultSiteData = {
     {
       id: 'prod-12',
       title: 'School Annual Day Thematic Stage Costume',
-      category: 'school',
+      category: 'events',
       tag: 'Costumes & Dance',
       moq: '50 Sets',
       fabrics: 'Vibrant Stage Satin, Lycra & Velvet',
@@ -431,16 +431,16 @@ window.filterPortfolio = function(categoryGroup) {
 
 // Handle Direct Product Inquiry
 window.handleProductInquire = function(productTitle) {
+  const msg = document.getElementById('form-message');
+  if (msg) {
+    msg.value = `I am interested in getting a wholesale quote for: ${productTitle}. Please share fabric samples and pricing.`;
+  }
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => {
-      const msg = document.getElementById('form-message');
-      if (msg) {
-        msg.value = `I am interested in getting a wholesale quote for: ${productTitle}. Please share fabric samples and pricing.`;
-        msg.focus();
-      }
-    }, 450);
+      if (msg) msg.focus();
+    }, 300);
   }
 };
 
@@ -477,6 +477,21 @@ window.openProductModal = function(id) {
       closeProductModal();
       handleProductInquire(item.title);
     };
+  }
+
+  const browseBtn = document.getElementById('modal-browse-btn');
+  if (browseBtn) {
+    const catGroup = item.group || item.category;
+    if (catGroup) {
+      browseBtn.style.display = 'inline-block';
+      browseBtn.innerText = `View all ${item.title.split(' ')[0]} in Catalog &darr;`;
+      browseBtn.onclick = () => {
+        closeProductModal();
+        filterPortfolio(catGroup);
+      };
+    } else {
+      browseBtn.style.display = 'none';
+    }
   }
 
   if (waBtn) {
@@ -560,13 +575,20 @@ function setupEstimator() {
 window.applyEstimatorToForm = function() {
   const cat = document.getElementById('est-category')?.value;
   const qty = parseInt(document.getElementById('est-qty-slider')?.value || '500', 10);
+  const emb = document.getElementById('est-opt-embroidery')?.checked ? 'Yes' : 'No';
+  const dye = document.getElementById('est-opt-custom-dye')?.checked ? 'Yes' : 'No';
+  const pkg = document.getElementById('est-opt-packaging')?.checked ? 'Yes' : 'No';
 
   const formCat = document.getElementById('inquiry-category');
   if (formCat && cat) {
-    for (let i = 0; i < formCat.options.length; i++) {
-      if (formCat.options[i].text.includes(cat) || cat.includes(formCat.options[i].text)) {
-        formCat.selectedIndex = i;
-        break;
+    // Exact value match or fallback
+    formCat.value = cat;
+    if (formCat.selectedIndex === -1) {
+      for (let i = 0; i < formCat.options.length; i++) {
+        if (formCat.options[i].text.toLowerCase().includes(cat.toLowerCase()) || cat.toLowerCase().includes(formCat.options[i].text.toLowerCase())) {
+          formCat.selectedIndex = i;
+          break;
+        }
       }
     }
   }
@@ -582,13 +604,15 @@ window.applyEstimatorToForm = function() {
 
   const msg = document.getElementById('form-message');
   if (msg) {
-    msg.value = `Estimated order: ${qty} units of ${cat}. Calculated via website timeline tool.`;
+    msg.value = `Order Planning Estimate:\n- Uniform Type: ${cat}\n- Target Quantity: ${qty} units\n- Logo Embroidery: ${emb}\n- Custom Color Dye: ${dye}\n- Individual Poly-Packing: ${pkg}\nPlease share wholesale rate and fabric swatches.`;
   }
 
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => msg?.focus(), 450);
+    setTimeout(() => {
+      if (msg) msg.focus();
+    }, 300);
   }
 };
 
@@ -643,7 +667,7 @@ window.applyMatrixToForm = function() {
 
   const formMsg = document.getElementById('form-message');
   if (formMsg) {
-    formMsg.value = `Size Breakdown (Total: ${total} pcs):\n- S: ${s} pcs\n- M: ${m} pcs\n- L: ${l} pcs\n- XL: ${xl} pcs\n- XXL: ${xxl} pcs\n- 3XL: ${xxxl} pcs`;
+    formMsg.value = `Bulk Size Breakdown (Total: ${total} pcs):\n- S (36-38"): ${s} pcs\n- M (38-40"): ${m} pcs\n- L (40-42"): ${l} pcs\n- XL (42-44"): ${xl} pcs\n- XXL (44-46"): ${xxl} pcs\n- 3XL (46"+): ${xxxl} pcs\nPlease share formal quotation and size trial sets.`;
   }
 
   const formVol = document.getElementById('form-volume');
@@ -658,7 +682,9 @@ window.applyMatrixToForm = function() {
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => formMsg?.focus(), 450);
+    setTimeout(() => {
+      if (formMsg) formMsg.focus();
+    }, 300);
   }
 };
 
@@ -834,6 +860,13 @@ function setupFormSubmitListener() {
     const submitBtn = document.getElementById('submit-btn');
     const successBanner = document.getElementById('form-success-banner');
     
+    const requestSwatches = document.getElementById('form-request-swatches')?.checked || false;
+    const swatchAddress = (document.getElementById('form-sample-address')?.value || '').trim();
+    let customSpecs = (document.getElementById('form-message')?.value || '').trim();
+    if (requestSwatches) {
+      customSpecs = `${customSpecs ? customSpecs + '\n\n' : ''}[PHYSICAL FABRIC SWATCHES REQUESTED]\nCourier Address: ${swatchAddress || 'Will provide over phone/WhatsApp'}`;
+    }
+
     const inquiry = {
       id: Date.now().toString(),
       name: (document.getElementById('form-name')?.value || '').trim(),
@@ -842,7 +875,9 @@ function setupFormSubmitListener() {
       phone: (document.getElementById('form-phone')?.value || '').trim(),
       category: document.getElementById('inquiry-category')?.value || 'School Uniforms',
       quantity: document.getElementById('form-volume')?.value || '300-500',
-      message: (document.getElementById('form-message')?.value || '').trim(),
+      message: customSpecs,
+      swatchesRequested: requestSwatches,
+      swatchAddress: swatchAddress,
       date: new Date().toISOString()
     };
 
@@ -870,6 +905,8 @@ function setupFormSubmitListener() {
       category: inquiry.category,
       quantity: inquiry.quantity,
       message: inquiry.message || 'No additional custom specs provided',
+      swatchesRequested: requestSwatches ? 'YES' : 'NO',
+      swatchAddress: swatchAddress || 'N/A',
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
 
@@ -899,6 +936,8 @@ function setupFormSubmitListener() {
         "Uniform Category": inquiry.category,
         "Estimated Order Quantity": inquiry.quantity,
         "Custom Specifications": inquiry.message || "Standard requirements",
+        "Fabric Swatches Requested": requestSwatches ? "YES" : "NO",
+        "Courier Address for Swatches": swatchAddress || "N/A",
         "_subject": `New B2B Uniform Inquiry - ${inquiry.company} (${inquiry.name})`
       })
     }).catch(err => console.warn('Direct email gateway note:', err));
@@ -920,6 +959,10 @@ function setupFormSubmitListener() {
     }
 
     form.reset();
+    const swatchAddrBox = document.getElementById('swatch-address-container');
+    const swatchBox = document.getElementById('swatch-request-box');
+    if (swatchAddrBox) swatchAddrBox.style.display = 'none';
+    if (swatchBox) swatchBox.classList.remove('active');
 
     // Show success alert
     if (successBanner) {
@@ -927,6 +970,252 @@ function setupFormSubmitListener() {
       successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
+}
+
+// ==========================================================
+// FABRIC SWATCH KIT REQUEST CONTROLLERS
+// ==========================================================
+window.toggleSwatchAddress = function(checkbox) {
+  const container = document.getElementById('swatch-address-container');
+  const box = document.getElementById('swatch-request-box');
+  if (container) {
+    container.style.display = checkbox.checked ? 'block' : 'none';
+  }
+  if (box) {
+    if (checkbox.checked) box.classList.add('active');
+    else box.classList.remove('active');
+  }
+};
+
+window.requestFabricSwatch = function(fabricName) {
+  const check = document.getElementById('form-request-swatches');
+  if (check) {
+    check.checked = true;
+    window.toggleSwatchAddress(check);
+  }
+  const msg = document.getElementById('form-message');
+  if (msg) {
+    msg.value = `I would like to request physical fabric swatches for: ${fabricName}. Please courier shade cards and wholesale pricing.`;
+  }
+  const contact = document.getElementById('contact');
+  if (contact) {
+    contact.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const addr = document.getElementById('form-sample-address');
+      if (addr) addr.focus();
+    }, 350);
+  }
+};
+
+// ==========================================================
+// INSTANT RFQ SUMMARY (COPY & PRINT)
+// ==========================================================
+window.copyRfqSummary = function(type) {
+  let summary = '';
+  if (type === 'timeline') {
+    const cat = document.getElementById('est-category')?.value || 'School Uniforms';
+    const qty = document.getElementById('est-qty-slider')?.value || '500';
+    const timeline = document.getElementById('summary-timeline')?.innerText || '14 - 18 Days';
+    const emb = document.getElementById('est-opt-embroidery')?.checked ? 'Included' : 'Not required';
+    const dye = document.getElementById('est-opt-custom-dye')?.checked ? 'Required' : 'Standard mill shades';
+    const pkg = document.getElementById('est-opt-packaging')?.checked ? 'Individual Poly-pack' : 'Bulk master carton';
+
+    summary = `=====================================\n` +
+              `SHAPES UNIFORM - RFQ SUMMARY\n` +
+              `Manufacturing Center: Chembur, Mumbai\n` +
+              `Phone/WhatsApp: +91 98333 92756\n` +
+              `=====================================\n` +
+              `Uniform Category: ${cat}\n` +
+              `Target Order Quantity: ${qty} Pieces\n` +
+              `Estimated Manufacturing Timeline: ${timeline}\n` +
+              `Logo Embroidery: ${emb}\n` +
+              `Custom Color Dyeing: ${dye}\n` +
+              `Packaging Standard: ${pkg}\n` +
+              `Date Generated: ${new Date().toLocaleDateString('en-IN')}\n` +
+              `=====================================`;
+  } else {
+    const s = document.getElementById('size-s')?.value || '0';
+    const m = document.getElementById('size-m')?.value || '0';
+    const l = document.getElementById('size-l')?.value || '0';
+    const xl = document.getElementById('size-xl')?.value || '0';
+    const xxl = document.getElementById('size-xxl')?.value || '0';
+    const xxxl = document.getElementById('size-3xl')?.value || '0';
+    const total = (parseInt(s, 10) || 0) + (parseInt(m, 10) || 0) + (parseInt(l, 10) || 0) + (parseInt(xl, 10) || 0) + (parseInt(xxl, 10) || 0) + (parseInt(xxxl, 10) || 0);
+
+    summary = `=====================================\n` +
+              `SHAPES UNIFORM - BULK SIZING RFQ\n` +
+              `Manufacturing Center: Chembur, Mumbai\n` +
+              `Phone/WhatsApp: +91 98333 92756\n` +
+              `=====================================\n` +
+              `Total Bulk Pieces: ${total} Pcs\n` +
+              `- Size S  (36"-38"): ${s} pcs\n` +
+              `- Size M  (38"-40"): ${m} pcs\n` +
+              `- Size L  (40"-42"): ${l} pcs\n` +
+              `- Size XL (42"-44"): ${xl} pcs\n` +
+              `- Size XXL(44"-46"): ${xxl} pcs\n` +
+              `- Size 3XL(46"+)   : ${xxxl} pcs\n` +
+              `Date Generated: ${new Date().toLocaleDateString('en-IN')}\n` +
+              `=====================================`;
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showRfqToast("✓ RFQ Summary copied to clipboard!");
+  }
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(summary).then(() => {
+      showRfqToast("✓ RFQ Summary copied to clipboard!");
+    }).catch(() => {
+      fallbackCopy(summary);
+    });
+  } else {
+    fallbackCopy(summary);
+  }
+};
+
+function showRfqToast(msg) {
+  const toast = document.getElementById('rfq-toast');
+  const txt = document.getElementById('rfq-toast-text');
+  if (txt) txt.innerText = msg;
+  if (toast) {
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+}
+
+window.printRfqSummary = function(type) {
+  const container = document.getElementById('print-rfq-modal');
+  if (!container) return;
+
+  const nowStr = new Date().toLocaleDateString('en-IN', {
+    day: 'numeric', month: 'short', year: 'numeric'
+  });
+
+  if (type === 'timeline') {
+    const cat = document.getElementById('est-category')?.value || 'School Uniforms';
+    const qty = document.getElementById('est-qty-slider')?.value || '500';
+    const timeline = document.getElementById('summary-timeline')?.innerText || '14 - 18 Days';
+    const emb = document.getElementById('est-opt-embroidery')?.checked ? 'Computerized Tajima Logo Embroidery' : 'No Logo Embroidery';
+    const dye = document.getElementById('est-opt-custom-dye')?.checked ? 'Custom Color Dyeing' : 'Standard Shade Cards';
+    const pkg = document.getElementById('est-opt-packaging')?.checked ? 'Individual Poly-pack with Size Sticker' : 'Bulk Pack';
+
+    container.innerHTML = `
+      <div style="font-family: Arial, sans-serif; color: #111; max-width: 800px; margin: 0 auto; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #C0392B; padding-bottom: 12px; margin-bottom: 20px;">
+          <div>
+            <h1 style="color: #C0392B; margin: 0; font-size: 26px;">SHAPES UNIFORM</h1>
+            <p style="margin: 4px 0 0 0; color: #555; font-size: 13px;">Direct Garment Manufacturer · Chembur, Mumbai</p>
+          </div>
+          <div style="text-align: right; font-size: 13px; color: #555;">
+            <p style="margin: 0;"><strong>Date:</strong> ${nowStr}</p>
+            <p style="margin: 4px 0 0 0;"><strong>Contact:</strong> 98333 92756</p>
+            <p style="margin: 4px 0 0 0;">shapesuniform@gmail.com</p>
+          </div>
+        </div>
+        <h2 style="font-size: 18px; color: #111; margin-bottom: 16px;">Request For Quotation (RFQ) - Production Timeline</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px;">
+          <tr style="background: #f4f4f4;"><th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Parameter</th><th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Requirement Details</th></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Uniform Category</td><td style="padding: 10px; border: 1px solid #ddd;">${cat}</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Target Order Quantity</td><td style="padding: 10px; border: 1px solid #ddd;">${qty} Pieces</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Estimated Production Lead Time</td><td style="padding: 10px; border: 1px solid #ddd; color: #C0392B; font-weight: bold;">${timeline}</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Logo Customization</td><td style="padding: 10px; border: 1px solid #ddd;">${emb}</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Color Customization</td><td style="padding: 10px; border: 1px solid #ddd;">${dye}</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Packaging Specifications</td><td style="padding: 10px; border: 1px solid #ddd;">${pkg}</td></tr>
+        </table>
+        <div style="background: #FDF2F1; border-left: 4px solid #C0392B; padding: 12px; font-size: 12px; color: #333;">
+          <p style="margin: 0;"><strong>Factory Address:</strong> SHAPES UNIFORM, Vaity House, Kelkar Wadi, Nagesh Patil Wadi, Near Amar Cinema, Ghatla, Chembur, Mumbai - 400071</p>
+        </div>
+      </div>
+    `;
+  } else {
+    const s = document.getElementById('size-s')?.value || '0';
+    const m = document.getElementById('size-m')?.value || '0';
+    const l = document.getElementById('size-l')?.value || '0';
+    const xl = document.getElementById('size-xl')?.value || '0';
+    const xxl = document.getElementById('size-xxl')?.value || '0';
+    const xxxl = document.getElementById('size-3xl')?.value || '0';
+    const total = (parseInt(s, 10) || 0) + (parseInt(m, 10) || 0) + (parseInt(l, 10) || 0) + (parseInt(xl, 10) || 0) + (parseInt(xxl, 10) || 0) + (parseInt(xxxl, 10) || 0);
+
+    container.innerHTML = `
+      <div style="font-family: Arial, sans-serif; color: #111; max-width: 800px; margin: 0 auto; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #C0392B; padding-bottom: 12px; margin-bottom: 20px;">
+          <div>
+            <h1 style="color: #C0392B; margin: 0; font-size: 26px;">SHAPES UNIFORM</h1>
+            <p style="margin: 4px 0 0 0; color: #555; font-size: 13px;">Direct Garment Manufacturer · Chembur, Mumbai</p>
+          </div>
+          <div style="text-align: right; font-size: 13px; color: #555;">
+            <p style="margin: 0;"><strong>Date:</strong> ${nowStr}</p>
+            <p style="margin: 4px 0 0 0;"><strong>Contact:</strong> 98333 92756</p>
+            <p style="margin: 4px 0 0 0;">shapesuniform@gmail.com</p>
+          </div>
+        </div>
+        <h2 style="font-size: 18px; color: #111; margin-bottom: 16px;">Request For Quotation (RFQ) - Bulk Size Allocation</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px;">
+          <tr style="background: #f4f4f4;"><th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Size Code</th><th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Chest / Bust Measurement</th><th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Quantity (Pieces)</th></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Size S</td><td style="padding: 10px; border: 1px solid #ddd;">36" - 38"</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right;">${s} pcs</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Size M</td><td style="padding: 10px; border: 1px solid #ddd;">38" - 40"</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right;">${m} pcs</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Size L</td><td style="padding: 10px; border: 1px solid #ddd;">40" - 42"</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right;">${l} pcs</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Size XL</td><td style="padding: 10px; border: 1px solid #ddd;">42" - 44"</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right;">${xl} pcs</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Size XXL</td><td style="padding: 10px; border: 1px solid #ddd;">44" - 46"</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right;">${xxl} pcs</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Size 3XL</td><td style="padding: 10px; border: 1px solid #ddd;">46"+ Tailored</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right;">${xxxl} pcs</td></tr>
+          <tr style="background: #FDF2F1; font-weight: bold;"><td colspan="2" style="padding: 10px; border: 1px solid #ddd; text-align: left;">Total Pieces Allocated</td><td style="padding: 10px; border: 1px solid #ddd; text-align: right; color: #C0392B;">${total} Pieces</td></tr>
+        </table>
+        <div style="background: #FDF2F1; border-left: 4px solid #C0392B; padding: 12px; font-size: 12px; color: #333;">
+          <p style="margin: 0;"><strong>Factory Address:</strong> SHAPES UNIFORM, Vaity House, Kelkar Wadi, Nagesh Patil Wadi, Near Amar Cinema, Ghatla, Chembur, Mumbai - 400071</p>
+        </div>
+      </div>
+    `;
+  }
+
+  container.style.display = 'block';
+  window.print();
+  setTimeout(() => {
+    container.style.display = 'none';
+  }, 1000);
+};
+
+// ==========================================================
+// FLOATING WHATSAPP QUICK CHIPS CONTROLLER
+// ==========================================================
+window.toggleWaChips = function(forceState) {
+  const card = document.getElementById('wa-quick-chips-card');
+  if (!card) return;
+  if (typeof forceState === 'boolean') {
+    if (forceState) card.classList.add('open');
+    else card.classList.remove('open');
+  } else {
+    card.classList.toggle('open');
+  }
+};
+
+window.sendQuickWa = function(topic) {
+  const msg = encodeURIComponent(`Hello Shapes Uniform, I would like to inquire about: ${topic}. Please share your wholesale catalogue and pricing.`);
+  window.open(`https://wa.me/919833392756?text=${msg}`, '_blank');
+  window.toggleWaChips(false);
+};
+
+// Back to Top and Scroll Helpers
+function setupBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  function checkScroll() {
+    const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (y > 350) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  document.addEventListener('scroll', checkScroll, { passive: true });
 }
 
 // ==========================================================
@@ -945,6 +1234,7 @@ function init() {
   setupNavigationListeners();
   setupFormSubmitListener();
   setupHeroVideo();
+  setupBackToTop();
 }
 
 document.addEventListener('DOMContentLoaded', init);

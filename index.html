@@ -101,16 +101,17 @@
         <ul class="header-nav-list">
           <li><a href="#hero" class="header-nav-item">Home</a></li>
           <li class="has-dropdown">
-            <a href="#categories" class="header-nav-item">Products <span class="nav-arrow">▾</span></a>
+            <a href="#portfolio" class="header-nav-item">Products <span class="nav-arrow">▾</span></a>
             <div class="header-dropdown-menu">
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('school')">🏫 School Uniforms</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('corporate')">🏢 Corporate Uniforms</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('medical')">🏥 Medical &amp; Scrubs</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('hospitality')">🏨 Hotel &amp; Hospitality</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('industrial')">🔧 Industrial &amp; Security</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('hospitality')">👨‍🍳 Chef Coats</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('events')">👕 T-Shirts &amp; Custom</a>
-              <a href="#categories" class="dropdown-link" onclick="filterPortfolio('events')">🎭 Costumes &amp; Dance</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('school')">🏫 School Uniforms</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('corporate')">🏢 Corporate Uniforms</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('medical')">🏥 Medical &amp; Scrubs</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('hospitality')">🏨 Hotel &amp; Hospitality</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('industrial')">🔧 Industrial &amp; Security</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('hospitality')">👨‍🍳 Chef Coats</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('events')">👕 T-Shirts &amp; Custom</a>
+              <a href="#portfolio" class="dropdown-link" onclick="filterPortfolio('events')">🎭 Costumes &amp; Dance</a>
+              <a href="#fabrics" class="dropdown-link">🧵 Fabric Specifications Guide</a>
             </div>
           </li>
           <li><a href="#how-it-works" class="header-nav-item">How It Works</a></li>
@@ -177,6 +178,10 @@
           </a></li>
           <li><a href="#portfolio" class="mobile-drawer-link">
             <span class="m-link-text">📋 Featured Catalog</span>
+            <span class="m-link-arrow">&rarr;</span>
+          </a></li>
+          <li><a href="#fabrics" class="mobile-drawer-link">
+            <span class="m-link-text">🧵 Fabric Specifications</span>
             <span class="m-link-arrow">&rarr;</span>
           </a></li>
           <li><a href="#how-it-works" class="mobile-drawer-link">
@@ -521,11 +526,233 @@
         <button class="filter-tab-btn" data-filter="medical">Medical</button>
         <button class="filter-tab-btn" data-filter="industrial">Industrial</button>
         <button class="filter-tab-btn" data-filter="hospitality">Hospitality</button>
+        <button class="filter-tab-btn" data-filter="events">Events &amp; Custom</button>
       </div>
 
       <!-- 12 Products Grid (Rendered dynamically by index.js) -->
       <div class="featured-products-grid" id="featured-products-grid">
         <!-- Rendered from index.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION 5B: FABRIC & TEXTILE SPECIFICATIONS GUIDE
+       Certified Mill-Direct Textiles for Institutional Uniforms
+       ========================================================== -->
+  <section class="py-80 fabric-guide-section" id="fabrics">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <span class="section-tag">Mill-Direct Quality</span>
+        <h2 class="section-heading">Fabric &amp; Material Specifications</h2>
+        <div class="title-red-bar"></div>
+        <p class="section-subtitle">
+          We manufacture exclusively with certified, lab-tested textiles engineered for high colorfastness, breathability, and durability across 50+ commercial wash cycles.
+        </p>
+      </div>
+
+      <div class="fabric-grid-6">
+        
+        <!-- Fabric 1: Poly-Viscose Suiting -->
+        <div class="fabric-card">
+          <div class="fabric-card-header">
+            <div class="fabric-icon-badge">👔</div>
+            <span class="fabric-gsm-tag">240 GSM</span>
+          </div>
+          <h3 class="fabric-name">Poly-Viscose Executive Suiting</h3>
+          <p class="fabric-ideal-for">📌 Ideal for: Corporate Blazers, Suits &amp; School Trousers</p>
+          <ul class="fabric-specs-list">
+            <li class="fabric-spec-item">
+              <span>Weave Composition:</span>
+              <strong>65% Poly / 35% Viscose</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Shrinkage Control:</span>
+              <strong>&lt; 1.5% Preshrunk</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Colorfastness:</span>
+              <strong>Grade 4+ (ISO 105)</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Finish:</span>
+              <strong>Wrinkle-Free Teflon Coating</strong>
+            </li>
+          </ul>
+          <div class="fabric-card-action">
+            <button type="button" class="fabric-swatch-btn" onclick="requestFabricSwatch('Poly-Viscose Executive Suiting (240 GSM)')">
+              Request Fabric Swatch &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Fabric 2: Mercerized Cotton Twill -->
+        <div class="fabric-card">
+          <div class="fabric-card-header">
+            <div class="fabric-icon-badge">👕</div>
+            <span class="fabric-gsm-tag">210 GSM</span>
+          </div>
+          <h3 class="fabric-name">Mercerized Combed Cotton Twill</h3>
+          <p class="fabric-ideal-for">📌 Ideal for: School Shirts, Doctor Coats &amp; Chef Wear</p>
+          <ul class="fabric-specs-list">
+            <li class="fabric-spec-item">
+              <span>Weave Composition:</span>
+              <strong>100% Combed Cotton Twill</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Breathability:</span>
+              <strong>Ultra-High Air Permeability</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Dye Quality:</span>
+              <strong>Vat Reactive Dyes (No Bleed)</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Wash Durability:</span>
+              <strong>50+ Institutional Washes</strong>
+            </li>
+          </ul>
+          <div class="fabric-card-action">
+            <button type="button" class="fabric-swatch-btn" onclick="requestFabricSwatch('Mercerized Combed Cotton Twill (210 GSM)')">
+              Request Fabric Swatch &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Fabric 3: Antimicrobial Poplin -->
+        <div class="fabric-card">
+          <div class="fabric-card-header">
+            <div class="fabric-icon-badge">🏥</div>
+            <span class="fabric-gsm-tag">180 GSM</span>
+          </div>
+          <h3 class="fabric-name">Antimicrobial Fluid-Shield Poplin</h3>
+          <p class="fabric-ideal-for">📌 Ideal for: Hospital OT Scrubs &amp; Clinical Tunics</p>
+          <ul class="fabric-specs-list">
+            <li class="fabric-spec-item">
+              <span>Weave Composition:</span>
+              <strong>Poly-Rayon 4-Way Stretch</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Protection:</span>
+              <strong>Antimicrobial &amp; Fluid-Repellent</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Sterilization:</span>
+              <strong>Autoclave &amp; Bleach Safe</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Comfort:</span>
+              <strong>Silky Drape &amp; Quick-Dry</strong>
+            </li>
+          </ul>
+          <div class="fabric-card-action">
+            <button type="button" class="fabric-swatch-btn" onclick="requestFabricSwatch('Antimicrobial Fluid-Shield Poplin (180 GSM)')">
+              Request Fabric Swatch &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Fabric 4: Heavy Cotton Drill -->
+        <div class="fabric-card">
+          <div class="fabric-card-header">
+            <div class="fabric-icon-badge">🔧</div>
+            <span class="fabric-gsm-tag">300-320 GSM</span>
+          </div>
+          <h3 class="fabric-name">Heavy Industrial Cotton Drill</h3>
+          <p class="fabric-ideal-for">📌 Ideal for: Boiler Suits, Overalls &amp; Security Wear</p>
+          <ul class="fabric-specs-list">
+            <li class="fabric-spec-item">
+              <span>Weave Composition:</span>
+              <strong>100% Heavy Twill Cotton Drill</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Tensile Strength:</span>
+              <strong>Tear &amp; Abrasion Resistant</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Special Finish:</span>
+              <strong>Spark &amp; Fire-Retardant Finish</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Wash Standard:</span>
+              <strong>Industrial High-Temp Washable</strong>
+            </li>
+          </ul>
+          <div class="fabric-card-action">
+            <button type="button" class="fabric-swatch-btn" onclick="requestFabricSwatch('Heavy Industrial Cotton Drill (300-320 GSM)')">
+              Request Fabric Swatch &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Fabric 5: Honeycomb Pique Cotton -->
+        <div class="fabric-card">
+          <div class="fabric-card-header">
+            <div class="fabric-icon-badge">👕</div>
+            <span class="fabric-gsm-tag">220 GSM</span>
+          </div>
+          <h3 class="fabric-name">Bio-Washed Honeycomb Pique</h3>
+          <p class="fabric-ideal-for">📌 Ideal for: Corporate Polo Tees &amp; Sports Jerseys</p>
+          <ul class="fabric-specs-list">
+            <li class="fabric-spec-item">
+              <span>Weave Composition:</span>
+              <strong>100% Bio-Polished Combed Cotton</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Knit Type:</span>
+              <strong>Breathable Honeycomb Air-Mesh</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Anti-Pilling:</span>
+              <strong>Grade 4.5 Enzyme Bio-Wash</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Collar/Cuff:</span>
+              <strong>Reinforced Elastane Ribbing</strong>
+            </li>
+          </ul>
+          <div class="fabric-card-action">
+            <button type="button" class="fabric-swatch-btn" onclick="requestFabricSwatch('Bio-Washed Honeycomb Pique Cotton (220 GSM)')">
+              Request Fabric Swatch &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Fabric 6: Stage Performance Satin & Velvet -->
+        <div class="fabric-card">
+          <div class="fabric-card-header">
+            <div class="fabric-icon-badge">🎭</div>
+            <span class="fabric-gsm-tag">190 GSM</span>
+          </div>
+          <h3 class="fabric-name">Stage Satin &amp; Performance Velvet</h3>
+          <p class="fabric-ideal-for">📌 Ideal for: Annual Day Costumes &amp; Dance Apparel</p>
+          <ul class="fabric-specs-list">
+            <li class="fabric-spec-item">
+              <span>Weave Composition:</span>
+              <strong>Rich Stage Satin / Stretch Lycra</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Visual Impact:</span>
+              <strong>High Luster under Stage Spotlights</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Flexibility:</span>
+              <strong>4-Way Dance Choreography Stretch</strong>
+            </li>
+            <li class="fabric-spec-item">
+              <span>Embroidery:</span>
+              <strong>Gold Zari &amp; Sequin Stitch Compatible</strong>
+            </li>
+          </ul>
+          <div class="fabric-card-action">
+            <button type="button" class="fabric-swatch-btn" onclick="requestFabricSwatch('Stage Satin & Performance Velvet (190 GSM)')">
+              Request Fabric Swatch &rarr;
+            </button>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -565,14 +792,14 @@
             <div class="tool-field">
               <label for="est-category" class="tool-label">Uniform Type</label>
               <select id="est-category" class="tool-select">
-                <option value="Corporate Wear">Corporate Wear (Blazers, Suits &amp; Shirts)</option>
                 <option value="School Uniforms" selected>School Uniforms (Sets, Pinafores &amp; PE)</option>
-                <option value="Hospital &amp; Medical Uniforms">Medical Uniforms (Scrubs &amp; Lab Coats)</option>
+                <option value="Corporate Uniforms">Corporate Uniforms (Blazers, Suits &amp; Shirts)</option>
+                <option value="Medical &amp; Scrubs">Medical &amp; Scrubs (Scrubs &amp; Lab Coats)</option>
                 <option value="Hotel &amp; Hospitality">Hotel &amp; Hospitality (Tunics &amp; Front Desk)</option>
-                <option value="Industrial &amp; Safety Wear">Industrial Wear (Coveralls &amp; High-Vis)</option>
+                <option value="Industrial &amp; Security">Industrial &amp; Security (Coveralls &amp; High-Vis)</option>
                 <option value="Chef Coats">Chef Coats &amp; Aprons</option>
-                <option value="T-Shirts &amp; Custom">Polo T-Shirts &amp; Event Wear</option>
-                <option value="Annual Day Costumes">School Annual Day Costumes</option>
+                <option value="T-Shirts &amp; Custom">T-Shirts &amp; Custom (Polo &amp; Event Wear)</option>
+                <option value="Costumes &amp; Dance">Costumes &amp; Dance (Stage &amp; Annual Day)</option>
               </select>
             </div>
 
@@ -630,6 +857,14 @@
               <button type="button" class="btn btn-outline w-100" onclick="applyEstimatorToForm()">
                 Apply to Quote Form &rarr;
               </button>
+              <div class="tool-rfq-actions">
+                <button type="button" class="btn-rfq-secondary" onclick="copyRfqSummary('timeline')">
+                  📋 Copy RFQ Summary
+                </button>
+                <button type="button" class="btn-rfq-secondary" onclick="printRfqSummary('timeline')">
+                  🖨️ Print RFQ Sheet
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -741,6 +976,14 @@
               <button type="button" class="btn btn-outline w-100" onclick="applyMatrixToForm()">
                 Add Sizing to Quote Form &rarr;
               </button>
+              <div class="tool-rfq-actions">
+                <button type="button" class="btn-rfq-secondary" onclick="copyRfqSummary('matrix')">
+                  📋 Copy Sizing RFQ
+                </button>
+                <button type="button" class="btn-rfq-secondary" onclick="printRfqSummary('matrix')">
+                  🖨️ Print Sizing Sheet
+                </button>
+              </div>
             </div>
 
           </div>
@@ -927,7 +1170,7 @@
                 </div>
                 <div class="form-group">
                   <label for="form-phone">Phone Number <span class="required">*</span></label>
-                  <input type="tel" id="form-phone" placeholder="Enter 10-digit mobile number" required autocomplete="tel">
+                  <input type="tel" id="form-phone" placeholder="Enter 10-digit mobile number" required autocomplete="tel" pattern="[0-9]{10}" maxlength="10" title="Please enter a 10-digit mobile number">
                 </div>
               </div>
 
@@ -954,6 +1197,21 @@
                     <option value="500-1000">500 - 1,000 Pieces</option>
                     <option value="1000+">1,000+ Pieces (Enterprise Bulk)</option>
                   </select>
+                </div>
+              </div>
+
+              <!-- Swatch Kit Request Checkbox -->
+              <div class="swatch-request-box" id="swatch-request-box">
+                <label class="swatch-request-toggle" for="form-request-swatches">
+                  <input type="checkbox" id="form-request-swatches" name="request_swatches" onchange="toggleSwatchAddress(this)">
+                  <span class="swatch-toggle-label">
+                    <strong>Request Free Physical Fabric Swatches &amp; Shade Cards</strong>
+                    <small>Sample swatches with logo embroidery couriered to your office / school across India</small>
+                  </span>
+                </label>
+                <div id="swatch-address-container" class="swatch-address-container" style="display:none;">
+                  <label for="form-sample-address">Courier Delivery Address for Swatch Kit</label>
+                  <textarea id="form-sample-address" rows="2" placeholder="Enter complete office/school address with PIN code for sample fabric courier..."></textarea>
                 </div>
               </div>
 
@@ -1155,6 +1413,7 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#categories">Uniform Categories</a></li>
             <li><a href="#portfolio">Featured Catalog</a></li>
+            <li><a href="#fabrics">Fabric Specifications</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#why-choose-us">Why Choose Us</a></li>
             <li><a href="#order-tools">Order Planning Tools</a></li>
@@ -1248,6 +1507,9 @@
             <button class="btn btn-primary modal-inquire-btn" id="modal-inquire-btn">
               Get a Quote for this Item &rarr;
             </button>
+            <button type="button" class="modal-browse-btn" id="modal-browse-btn" style="display:none;">
+              Browse in Catalog &darr;
+            </button>
             <a href="#" target="_blank" class="btn btn-whatsapp modal-wa-btn" id="modal-wa-btn">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.301-.776.979-.952 1.18-.176.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.151-.176.201-.301.302-.502.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.927-2.233-.244-.587-.492-.507-.677-.517-.175-.01-.376-.01-.577-.01-.2 0-.527.075-.802.376-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.634.721.23 1.378.197 1.897.12.579-.087 1.78-.727 2.03-1.43.25-.702.25-1.304.175-1.43-.075-.125-.276-.201-.577-.351zM12.04 2C6.505 2 2.01 6.495 2.01 12.03c0 1.83.49 3.54 1.34 5.02L2 22l5.08-1.33c1.44.79 3.09 1.23 4.83 1.23 5.535 0 10.03-4.495 10.03-10.03C21.94 6.495 17.575 2 12.04 2z"/></svg>
               <span>WhatsApp Inquiry</span>
@@ -1260,15 +1522,58 @@
   </div>
 
   <!-- ==========================================================
-       FLOATING WHATSAPP BUTTON (DESKTOP & MOBILE)
+       FLOATING WHATSAPP BUTTON WITH QUICK-CHIPS MENU
        ========================================================== -->
-  <a href="https://wa.me/919833392756?text=Hello%20Shapes%20Uniform%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20custom%20uniforms." target="_blank" rel="noopener" class="floating-wa-btn" id="floating-wa-cta" aria-label="Chat with Shapes Uniform on WhatsApp">
-    <div class="wa-tooltip">Chat with Shapes Uniform</div>
-    <div class="wa-btn-circle">
-      <svg viewBox="0 0 24 24" class="floating-wa-svg" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.301-.776.979-.952 1.18-.176.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.151-.176.201-.301.302-.502.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.927-2.233-.244-.587-.492-.507-.677-.517-.175-.01-.376-.01-.577-.01-.2 0-.527.075-.802.376-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.634.721.23 1.378.197 1.897.12.579-.087 1.78-.727 2.03-1.43.25-.702.25-1.304.175-1.43-.075-.125-.276-.201-.577-.351zM12.04 2C6.505 2 2.01 6.495 2.01 12.03c0 1.83.49 3.54 1.34 5.02L2 22l5.08-1.33c1.44.79 3.09 1.23 4.83 1.23 5.535 0 10.03-4.495 10.03-10.03C21.94 6.495 17.575 2 12.04 2z"/></svg>
-      <span class="wa-ping-dot"></span>
+  <div class="floating-wa-wrapper" id="floating-wa-wrapper">
+    
+    <!-- Quick Selection Chips Card -->
+    <div class="wa-quick-chips-card" id="wa-quick-chips-card">
+      <div class="wa-chips-head">
+        <span>Quick WhatsApp Inquiries</span>
+        <button type="button" class="wa-chips-close" onclick="toggleWaChips(false)">&times;</button>
+      </div>
+      <button type="button" class="wa-chip-btn" onclick="sendQuickWa('School Uniforms Quote')">
+        <span>🏫 School Uniforms</span>
+        <span>&rarr;</span>
+      </button>
+      <button type="button" class="wa-chip-btn" onclick="sendQuickWa('Corporate Blazers & Suiting')">
+        <span>🏢 Corporate Blazers</span>
+        <span>&rarr;</span>
+      </button>
+      <button type="button" class="wa-chip-btn" onclick="sendQuickWa('Hospital Scrubs & Lab Coats')">
+        <span>🏥 Hospital &amp; Scrubs</span>
+        <span>&rarr;</span>
+      </button>
+      <button type="button" class="wa-chip-btn" onclick="sendQuickWa('Bulk Manufacturing Timeline')">
+        <span>⏱️ Urgent Delivery Check</span>
+        <span>&rarr;</span>
+      </button>
     </div>
-  </a>
+
+    <!-- Main Floating WA Trigger Button -->
+    <a href="https://wa.me/919833392756?text=Hello%20Shapes%20Uniform%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20custom%20uniforms." target="_blank" rel="noopener" class="floating-wa-btn" id="floating-wa-cta" aria-label="Chat with Shapes Uniform on WhatsApp">
+      <div class="wa-tooltip">Chat with Shapes Uniform</div>
+      <div class="wa-btn-circle">
+        <svg viewBox="0 0 24 24" class="floating-wa-svg" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.301-.776.979-.952 1.18-.176.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.151-.176.201-.301.302-.502.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.927-2.233-.244-.587-.492-.507-.677-.517-.175-.01-.376-.01-.577-.01-.2 0-.527.075-.802.376-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.634.721.23 1.378.197 1.897.12.579-.087 1.78-.727 2.03-1.43.25-.702.25-1.304.175-1.43-.075-.125-.276-.201-.577-.351zM12.04 2C6.505 2 2.01 6.495 2.01 12.03c0 1.83.49 3.54 1.34 5.02L2 22l5.08-1.33c1.44.79 3.09 1.23 4.83 1.23 5.535 0 10.03-4.495 10.03-10.03C21.94 6.495 17.575 2 12.04 2z"/></svg>
+        <span class="wa-ping-dot"></span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Floating Back-to-Top Button -->
+  <button type="button" class="back-to-top-btn" id="back-to-top" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- RFQ Toast Notification -->
+  <div class="rfq-toast" id="rfq-toast">
+    <span>✓</span>
+    <span id="rfq-toast-text">RFQ Summary copied to clipboard!</span>
+  </div>
+
+  <!-- Hidden Print Container for Printable RFQ Sheet -->
+  <div id="print-rfq-modal" style="display:none;"></div>
 
   <!-- ==========================================================
        STICKY MOBILE ACTION BAR
