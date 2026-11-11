@@ -2915,10 +2915,17 @@ button, input, select, textarea {
     display: flex;
   }
 
-  /* Lift floating WhatsApp button so it doesn't overlap sticky bar */
-  .floating-wa-btn {
+  /* Lift floating WhatsApp button & Back to Top so they don't overlap sticky bar */
+  .floating-wa-wrapper {
     bottom: 74px;
     right: 16px;
+  }
+
+  .back-to-top-btn {
+    bottom: 74px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
   }
 
   .wa-btn-circle {
@@ -2959,6 +2966,7 @@ button, input, select, textarea {
   border: 1px solid var(--border-color);
   padding: 14px 16px;
   width: 250px;
+  max-width: calc(100vw - 32px);
   display: none;
   flex-direction: column;
   gap: 8px;
@@ -3075,8 +3083,8 @@ button, input, select, textarea {
   color: var(--primary-color);
 }
 
-/* Responsive adjustments for 393px mobile */
-@media (max-width: 600px) {
+/* Responsive adjustments for mobile & tablet (<= 768px) to clear 60px sticky bottom action bar */
+@media (max-width: 768px) {
   .floating-wa-wrapper {
     bottom: 74px;
     right: 16px;

@@ -319,6 +319,17 @@ function renderSiteDetails() {
 // ==========================================================
 // FEATURED PRODUCTS CATALOG RENDERING & FILTERING
 // ==========================================================
+// Utility: Escape HTML strings to prevent XSS / render issues
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 function renderFeaturedProducts(filter = 'all', query = '') {
   const grid = document.getElementById('featured-products-grid');
   if (!grid) return;
@@ -336,10 +347,12 @@ function renderFeaturedProducts(filter = 'all', query = '') {
   });
 
   if (filtered.length === 0) {
+    const safeQ = escapeHtml(query);
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: var(--text-muted);">
-        <p style="font-size: 18px; margin-bottom: 8px;">No uniforms found matching "<strong>${query}</strong>".</p>
-        <p style="font-size: 14px;">Try searching for "blazer", "scrub", "school", or "chef".</p>
+        <p style="font-size: 18px; margin-bottom: 8px;">${safeQ ? `No uniforms found matching "<strong>${safeQ}</strong>".` : 'No uniforms found in this category.'}</p>
+        <p style="font-size: 14px; margin-bottom: 16px;">Try searching for "blazer", "scrub", "school", or "chef".</p>
+        <button type="button" class="btn btn-outline" style="font-size: 13px; padding: 6px 16px;" onclick="filterPortfolio('all')">View All Uniforms</button>
       </div>
     `;
     return;
@@ -368,7 +381,7 @@ function renderFeaturedProducts(filter = 'all', query = '') {
           <button type="button" onclick="openProductModal('${item.id}')" class="btn btn-outline prod-spec-btn">
             View Details
           </button>
-          <button type="button" onclick="handleProductInquire('${item.title}')" class="btn btn-primary prod-enquire-btn">
+          <button type="button" onclick="handleProductInquire('${item.title.replace(/'/g, "\\'")}', '${item.category}')" class="btn btn-primary prod-enquire-btn">
             Enquire &rarr;
           </button>
         </div>
@@ -430,11 +443,25 @@ window.filterPortfolio = function(categoryGroup) {
 };
 
 // Handle Direct Product Inquiry
-window.handleProductInquire = function(productTitle) {
+window.handleProductInquire = function(productTitle, categoryGroup) {
   const msg = document.getElementById('form-message');
   if (msg) {
     msg.value = `I am interested in getting a wholesale quote for: ${productTitle}. Please share fabric samples and pricing.`;
   }
+
+  const formCat = document.getElementById('inquiry-category');
+  if (formCat) {
+    const targetCat = (categoryGroup || productTitle).toLowerCase();
+    for (let i = 0; i < formCat.options.length; i++) {
+      const optVal = formCat.options[i].value.toLowerCase();
+      const optText = formCat.options[i].text.toLowerCase();
+      if (optVal.includes(targetCat) || targetCat.includes(optVal) || optText.includes(targetCat) || targetCat.includes(optText)) {
+        formCat.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
   const contact = document.getElementById('contact');
   if (contact) {
     contact.scrollIntoView({ behavior: 'smooth' });
@@ -475,7 +502,7 @@ window.openProductModal = function(id) {
   if (inquireBtn) {
     inquireBtn.onclick = () => {
       closeProductModal();
-      handleProductInquire(item.title);
+      handleProductInquire(item.title, item.group || item.category);
     };
   }
 
@@ -484,7 +511,7 @@ window.openProductModal = function(id) {
     const catGroup = item.group || item.category;
     if (catGroup) {
       browseBtn.style.display = 'inline-block';
-      browseBtn.innerText = `View all ${item.title.split(' ')[0]} in Catalog &darr;`;
+      browseBtn.innerHTML = `View all ${escapeHtml(item.title.split(' ')[0])} in Catalog &darr;`;
       browseBtn.onclick = () => {
         closeProductModal();
         filterPortfolio(catGroup);
@@ -521,7 +548,11 @@ function setupModalListeners() {
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeProductModal();
+    if (e.key === 'Escape') {
+      closeProductModal();
+      if (typeof window.closeDrawer === 'function') window.closeDrawer();
+      window.toggleWaChips(false);
+    }
   });
 }
 
@@ -631,7 +662,14 @@ window.calculateMatrixTotal = function() {
   let total = 0;
   sizes.forEach(id => {
     const el = document.getElementById(id);
-    if (el) total += parseInt(el.value, 10) || 0;
+    if (el) {
+      let val = parseInt(el.value, 10);
+      if (isNaN(val) || val < 0) {
+        val = 0;
+        if (el.value !== '') el.value = 0;
+      }
+      total += val;
+    }
   });
 
   const totalEl = document.getElementById('matrix-total-units');
@@ -664,6 +702,16 @@ window.applyMatrixToForm = function() {
   const xxl = document.getElementById('size-xxl')?.value || '0';
   const xxxl = document.getElementById('size-3xl')?.value || '0';
   const total = (parseInt(s, 10) || 0) + (parseInt(m, 10) || 0) + (parseInt(l, 10) || 0) + (parseInt(xl, 10) || 0) + (parseInt(xxl, 10) || 0) + (parseInt(xxxl, 10) || 0);
+
+  if (total <= 0) {
+    const sInput = document.getElementById('size-s');
+    if (sInput) {
+      sInput.value = 50;
+      calculateMatrixTotal();
+      sInput.focus();
+    }
+    return;
+  }
 
   const formMsg = document.getElementById('form-message');
   if (formMsg) {
@@ -759,6 +807,7 @@ function setupNavigationListeners() {
       if (toggleBtn) toggleBtn.classList.remove('active');
     }
   }
+  window.closeDrawer = closeDrawer;
 
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener('click', (e) => {
@@ -853,6 +902,17 @@ function setupHeroVideo() {
 function setupFormSubmitListener() {
   const form = document.getElementById('b2b-quote-form');
   if (!form) return;
+
+  // Auto-clean phone input: strip non-digits and leading +91/0
+  const phoneInput = document.getElementById('form-phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '');
+      if (val.startsWith('91') && val.length > 10) val = val.substring(2);
+      if (val.startsWith('0') && val.length > 10) val = val.substring(1);
+      e.target.value = val.slice(0, 10);
+    });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -975,10 +1035,32 @@ window.sendQuickWa = function(topic) {
   window.toggleWaChips(false);
 };
 
+function setupFloatingWa() {
+  const waCta = document.getElementById('floating-wa-cta');
+  if (waCta) {
+    waCta.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.toggleWaChips();
+    });
+  }
+
+  // Close floating chips tray when clicking anywhere outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.floating-wa-wrapper')) {
+      window.toggleWaChips(false);
+    }
+  });
+}
+
 // Back to Top and Scroll Helpers
 function setupBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   function checkScroll() {
     const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -991,6 +1073,7 @@ function setupBackToTop() {
 
   window.addEventListener('scroll', checkScroll, { passive: true });
   document.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
 }
 
 // ==========================================================
@@ -1010,6 +1093,7 @@ function init() {
   setupFormSubmitListener();
   setupHeroVideo();
   setupBackToTop();
+  setupFloatingWa();
 }
 
 document.addEventListener('DOMContentLoaded', init);
