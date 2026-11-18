@@ -364,8 +364,10 @@ function renderFeaturedProducts(filter = 'all', query = '') {
         <span class="prod-tag-pill">${item.tag}</span>
         <img 
           src="${item.image}" 
-          alt="${item.title}" 
+          alt="${item.title} - Custom Uniform by Shapes Uniform Mumbai" 
           class="prod-img"
+          width="400"
+          height="320"
           loading="lazy"
           onerror="this.src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80'"
         />
@@ -754,7 +756,7 @@ function renderBrandsStrip() {
 
   const items = siteData.brands.map(brand => `
     <div class="marquee-item" title="${brand.name}${brand.tag ? ' - ' + brand.tag : ''}">
-      <img src="${brand.logo}" alt="${brand.name}" class="marquee-img" loading="lazy">
+      <img src="${brand.logo}" alt="${brand.name} Uniform Client - Shapes Uniform Mumbai" class="marquee-img" width="140" height="48" loading="lazy">
     </div>
   `).join('');
 

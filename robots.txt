@@ -1,0 +1,11 @@
+# Shapes Uniform - robots.txt
+# Official Website: https://shapesuniform.in
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin.js
+Disallow: /admin.css
+
+# Sitemaps
+Sitemap: https://shapesuniform.in/sitemap.xml
