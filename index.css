@@ -3119,3 +3119,17 @@ button, input, select, textarea {
     height: 40px;
   }
 }
+
+/* Institutional Technical Specs Table */
+.specs-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.specs-table th, .specs-table td {
+  white-space: nowrap;
+}
+@media (min-width: 992px) {
+  .specs-table th, .specs-table td {
+    white-space: normal;
+  }
+}

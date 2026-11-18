@@ -1,0 +1,24 @@
+{
+  "name": "Shapes Uniform - Direct Uniform Manufacturer Mumbai",
+  "short_name": "Shapes Uniform",
+  "description": "Mumbai's premier custom uniform manufacturer for schools, corporates, hospitals, hotels, and industry since 2013.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#C0392B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://static.wixstatic.com/media/af05e4_aa9f9cc207d648b7bd6b21ce3937f320~mv2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://static.wixstatic.com/media/af05e4_aa9f9cc207d648b7bd6b21ce3937f320~mv2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
