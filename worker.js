@@ -30,6 +30,28 @@ export default {
       }
     }
 
+    if (url.pathname === "/sitemap.xml") {
+      const response = await env.ASSETS.fetch(request);
+      const newHeaders = new Headers(response.headers);
+      newHeaders.set("Content-Type", "application/xml; charset=utf-8");
+      newHeaders.set("Access-Control-Allow-Origin", "*");
+      return new Response(response.body, {
+        status: response.status,
+        headers: newHeaders
+      });
+    }
+
+    if (url.pathname === "/robots.txt") {
+      const response = await env.ASSETS.fetch(request);
+      const newHeaders = new Headers(response.headers);
+      newHeaders.set("Content-Type", "text/plain; charset=utf-8");
+      newHeaders.set("Access-Control-Allow-Origin", "*");
+      return new Response(response.body, {
+        status: response.status,
+        headers: newHeaders
+      });
+    }
+
     return env.ASSETS.fetch(request);
   }
 };
